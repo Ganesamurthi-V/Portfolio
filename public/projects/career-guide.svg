@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Smart Career Guide resume match report">
+  <defs>
+    <style>
+      .h{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:600}
+      .b{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:400}
+      .m{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-weight:500}
+      .fg{fill:#eef0f2}.mut{fill:#8d93a0}.dim{fill:#5f6674}.acc{fill:#c8ff4d}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#07080a"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1600" height="88" fill="#0b0d11"/>
+  <line x1="0" y1="88" x2="1600" y2="88" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="48" y="27" width="34" height="34" rx="9" fill="#c8ff4d"/>
+  <path d="M58 44l6 6 10-12" stroke="#0a0d04" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="h fg" x="94" y="44" font-size="17">Smart Career Guide</text>
+  <text class="m dim" x="94" y="60" font-size="9.5" letter-spacing="1.4">RESUME × JOB DESCRIPTION MATCHER</text>
+
+  <g class="b mut" font-size="12.5">
+    <text x="620" y="50">Upload</text>
+    <text class="acc" x="712" y="50">Match report</text>
+    <text x="856" y="50">Recommendations</text>
+    <text x="1020" y="50">History</text>
+  </g>
+  <rect x="706" y="62" width="104" height="2" rx="1" fill="#c8ff4d"/>
+
+  <rect x="1360" y="26" width="192" height="36" rx="18" fill="#c8ff4d"/>
+  <text class="h" x="1382" y="49" font-size="12" fill="#0a0d04">Compare another role</text>
+
+  <!-- Source strip -->
+  <rect x="48" y="124" width="740" height="92" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="72" y="146" width="44" height="48" rx="8" fill="#1b2029"/>
+  <text class="m" x="80" y="176" font-size="9.5" fill="#ff8079">PDF</text>
+  <text class="m dim" x="132" y="152" font-size="9" letter-spacing="1.4">RESUME</text>
+  <text class="h fg" x="132" y="174" font-size="14">ganesamurthi-v-resume.pdf</text>
+  <text class="m dim" x="132" y="194" font-size="10">parsed · 1 page · 38 skills normalised</text>
+  <circle cx="742" cy="170" r="11" fill="#c8ff4d" fill-opacity="0.14"/>
+  <path d="M737 170l4 4 7-8" stroke="#c8ff4d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+  <rect x="812" y="124" width="740" height="92" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="836" y="146" width="44" height="48" rx="8" fill="#1b2029"/>
+  <text class="m dim" x="846" y="176" font-size="9.5">JD</text>
+  <text class="m dim" x="896" y="152" font-size="9" letter-spacing="1.4">TARGET ROLE</text>
+  <text class="h fg" x="896" y="174" font-size="14">Full-Stack Engineer · Series A SaaS</text>
+  <text class="m dim" x="896" y="194" font-size="10">14 required · 6 preferred requirements extracted</text>
+
+  <!-- Match score -->
+  <rect x="48" y="244" width="500" height="330" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="76" y="278" font-size="9" letter-spacing="1.8">MATCH SCORE</text>
+
+  <circle cx="298" cy="400" r="96" fill="none" stroke="#1b2029" stroke-width="20"/>
+  <path d="M298 304a96 96 0 0 1 78 151" fill="none" stroke="#c8ff4d" stroke-width="20" stroke-linecap="round"/>
+  <text class="h fg" x="246" y="412" font-size="58">74</text>
+  <text class="h mut" x="332" y="412" font-size="22">%</text>
+  <text class="m dim" x="254" y="438" font-size="9.5" letter-spacing="1.2">STRONG MATCH</text>
+
+  <g class="m" font-size="10.5">
+    <circle cx="90" cy="516" r="4" fill="#c8ff4d"/>
+    <text class="fg" x="106" y="520">14 of 20 requirements matched</text>
+    <circle cx="90" cy="544" r="4" fill="#ff8079"/>
+    <text class="fg" x="106" y="548">6 gaps · 2 of them required</text>
+  </g>
+
+  <!-- Overlap -->
+  <rect x="572" y="244" width="490" height="330" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="600" y="278" font-size="15">Matched</text>
+  <text class="m acc" x="988" y="278" font-size="11">14</text>
+
+  <g class="m" font-size="10.5">
+    <rect x="600" y="298" width="110" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="614" y="315">TypeScript</text>
+    <rect x="718" y="298" width="76" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="732" y="315">React</text>
+    <rect x="802" y="298" width="90" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="816" y="315">Next.js</text>
+    <rect x="900" y="298" width="110" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="914" y="315">PostgreSQL</text>
+
+    <rect x="600" y="334" width="96" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="614" y="351">REST API</text>
+    <rect x="704" y="334" width="76" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="718" y="351">Python</text>
+    <rect x="788" y="334" width="72" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="802" y="351">Flask</text>
+    <rect x="868" y="334" width="84" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="882" y="351">Docker</text>
+
+    <rect x="600" y="370" width="84" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="614" y="387">Git</text>
+    <rect x="692" y="370" width="112" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="706" y="387">SQL joins</text>
+    <rect x="812" y="370" width="96" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="826" y="387">Auth / RBAC</text>
+
+    <rect x="600" y="406" width="126" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="614" y="423">Multi-tenancy</text>
+    <rect x="734" y="406" width="108" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="748" y="423">Tailwind CSS</text>
+    <rect x="850" y="406" width="96" height="26" rx="7" fill="#c8ff4d" fill-opacity="0.13"/><text class="acc" x="864" y="423">Vercel</text>
+  </g>
+
+  <line x1="600" y1="456" x2="1034" y2="456" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="600" y="484" font-size="9" letter-spacing="1.4">EVIDENCE · WHY THIS MATCHED</text>
+  <text class="b mut" x="600" y="508" font-size="11">"Built a multi-tenant SaaS in Next.js and TypeScript with</text>
+  <text class="b mut" x="600" y="528" font-size="11">PostgreSQL row level security" → <tspan class="acc">Multi-tenancy, RBAC</tspan></text>
+  <text class="m dim" x="600" y="552" font-size="9.5">Scores always ship with the terms that produced them.</text>
+
+  <!-- Gaps -->
+  <rect x="1086" y="244" width="466" height="330" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="1114" y="278" font-size="15">Skill gaps</text>
+  <text class="m" x="1504" y="278" font-size="11" fill="#ff8079">6</text>
+
+  <g class="m" font-size="10.5">
+    <rect x="1114" y="298" width="410" height="42" rx="10" fill="#ff5f56" fill-opacity="0.08"/>
+    <rect x="1114" y="298" width="2.5" height="42" rx="1.25" fill="#ff8079"/>
+    <text class="fg" x="1134" y="316" font-size="11.5">Kubernetes</text>
+    <rect x="1440" y="306" width="68" height="18" rx="5" fill="#ff5f56" fill-opacity="0.18"/>
+    <text x="1450" y="319" font-size="8.5" fill="#ff8079">REQUIRED</text>
+    <text class="dim" x="1134" y="332" font-size="9.5">infrastructure · appears 3× in the JD</text>
+
+    <rect x="1114" y="350" width="410" height="42" rx="10" fill="#ff5f56" fill-opacity="0.08"/>
+    <rect x="1114" y="350" width="2.5" height="42" rx="1.25" fill="#ff8079"/>
+    <text class="fg" x="1134" y="368" font-size="11.5">GraphQL</text>
+    <rect x="1440" y="358" width="68" height="18" rx="5" fill="#ff5f56" fill-opacity="0.18"/>
+    <text x="1450" y="371" font-size="8.5" fill="#ff8079">REQUIRED</text>
+    <text class="dim" x="1134" y="384" font-size="9.5">api layer · adjacent to REST experience</text>
+
+    <rect x="1114" y="402" width="410" height="42" rx="10" fill="#ffb86b" fill-opacity="0.07"/>
+    <rect x="1114" y="402" width="2.5" height="42" rx="1.25" fill="#ffb86b"/>
+    <text class="fg" x="1134" y="420" font-size="11.5">Redis</text>
+    <rect x="1436" y="410" width="72" height="18" rx="5" fill="#ffb86b" fill-opacity="0.18"/>
+    <text x="1444" y="423" font-size="8.5" fill="#ffb86b">PREFERRED</text>
+    <text class="dim" x="1134" y="436" font-size="9.5">caching · mentioned once</text>
+
+    <rect x="1114" y="454" width="410" height="42" rx="10" fill="#ffb86b" fill-opacity="0.07"/>
+    <rect x="1114" y="454" width="2.5" height="42" rx="1.25" fill="#ffb86b"/>
+    <text class="fg" x="1134" y="472" font-size="11.5">Terraform</text>
+    <rect x="1436" y="462" width="72" height="18" rx="5" fill="#ffb86b" fill-opacity="0.18"/>
+    <text x="1444" y="475" font-size="8.5" fill="#ffb86b">PREFERRED</text>
+    <text class="dim" x="1134" y="488" font-size="9.5">infrastructure as code</text>
+
+    <rect x="1114" y="506" width="410" height="42" rx="10" fill="#ffb86b" fill-opacity="0.07"/>
+    <rect x="1114" y="506" width="2.5" height="42" rx="1.25" fill="#ffb86b"/>
+    <text class="fg" x="1134" y="524" font-size="11.5">gRPC</text>
+    <rect x="1436" y="514" width="72" height="18" rx="5" fill="#ffb86b" fill-opacity="0.18"/>
+    <text x="1444" y="527" font-size="8.5" fill="#ffb86b">PREFERRED</text>
+    <text class="dim" x="1134" y="540" font-size="9.5">service transport</text>
+  </g>
+
+  <!-- Themes -->
+  <rect x="48" y="598" width="1004" height="182" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="76" y="632" font-size="15">Coverage by theme</text>
+  <text class="b dim" x="76" y="652" font-size="11">Grouped so the gap maps onto a learning decision</text>
+
+  <g class="m" font-size="10">
+    <text class="mut" x="76" y="692">Frontend</text>
+    <rect x="240" y="681" width="620" height="10" rx="5" fill="#1b2029"/>
+    <rect x="240" y="681" width="558" height="10" rx="5" fill="#c8ff4d"/>
+    <text class="acc" x="892" y="692">90%</text>
+
+    <text class="mut" x="76" y="722">Backend &amp; APIs</text>
+    <rect x="240" y="711" width="620" height="10" rx="5" fill="#1b2029"/>
+    <rect x="240" y="711" width="446" height="10" rx="5" fill="#c8ff4d"/>
+    <text class="acc" x="892" y="722">72%</text>
+
+    <text class="mut" x="76" y="752">Data</text>
+    <rect x="240" y="741" width="620" height="10" rx="5" fill="#1b2029"/>
+    <rect x="240" y="741" width="496" height="10" rx="5" fill="#c8ff4d"/>
+    <text class="acc" x="892" y="752">80%</text>
+
+    <text class="mut" x="76" y="782">Infrastructure</text>
+    <rect x="240" y="771" width="620" height="10" rx="5" fill="#1b2029"/>
+    <rect x="240" y="771" width="186" height="10" rx="5" fill="#ff8079"/>
+    <text x="892" y="782" fill="#ff8079">30%</text>
+  </g>
+
+  <!-- Recommendations -->
+  <rect x="1086" y="598" width="466" height="358" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="1114" y="632" font-size="15">Recommended roles</text>
+
+  <g>
+    <rect x="1114" y="654" width="410" height="82" rx="12" fill="#c8ff4d" fill-opacity="0.07" stroke="#c8ff4d" stroke-opacity="0.25"/>
+    <text class="h fg" x="1134" y="680" font-size="12.5">Full-Stack Engineer</text>
+    <text class="m acc" x="1470" y="680" font-size="12">74%</text>
+    <text class="m dim" x="1134" y="700" font-size="9.5">SaaS · Bengaluru / remote</text>
+    <rect x="1134" y="710" width="368" height="5" rx="2.5" fill="#1b2029"/>
+    <rect x="1134" y="710" width="272" height="5" rx="2.5" fill="#c8ff4d"/>
+
+    <rect x="1114" y="748" width="410" height="82" rx="12" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text class="h fg" x="1134" y="774" font-size="12.5">Backend Engineer</text>
+    <text class="m acc" x="1470" y="774" font-size="12">69%</text>
+    <text class="m dim" x="1134" y="794" font-size="9.5">Fintech · Chennai</text>
+    <rect x="1134" y="804" width="368" height="5" rx="2.5" fill="#1b2029"/>
+    <rect x="1134" y="804" width="254" height="5" rx="2.5" fill="#c8ff4d" fill-opacity="0.75"/>
+
+    <rect x="1114" y="842" width="410" height="82" rx="12" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text class="h fg" x="1134" y="868" font-size="12.5">Product Engineer</text>
+    <text class="m acc" x="1470" y="868" font-size="12">63%</text>
+    <text class="m dim" x="1134" y="888" font-size="9.5">Developer tools · remote</text>
+    <rect x="1134" y="898" width="368" height="5" rx="2.5" fill="#1b2029"/>
+    <rect x="1134" y="898" width="232" height="5" rx="2.5" fill="#c8ff4d" fill-opacity="0.6"/>
+  </g>
+
+  <!-- Pipeline strip -->
+  <rect x="48" y="804" width="1004" height="152" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="76" y="838" font-size="14">Processing pipeline</text>
+  <text class="m dim" x="880" y="838" font-size="9.5">cached · 1.8 s</text>
+
+  <g class="m" font-size="10">
+    <rect x="76" y="862" width="150" height="56" rx="12" fill="#1b2029"/>
+    <text class="fg" x="94" y="886" font-size="10.5">Extraction</text>
+    <text class="dim" x="94" y="904" font-size="9">pdf → text</text>
+
+    <path d="M234 890h26" stroke="#3c424e" stroke-width="1.5"/>
+    <path d="M254 885l6 5-6 5" stroke="#3c424e" stroke-width="1.5" fill="none"/>
+
+    <rect x="268" y="862" width="176" height="56" rx="12" fill="#1b2029"/>
+    <text class="fg" x="286" y="886" font-size="10.5">Normalisation</text>
+    <text class="dim" x="286" y="904" font-size="9">controlled vocabulary</text>
+
+    <path d="M452 890h26" stroke="#3c424e" stroke-width="1.5"/>
+    <path d="M472 885l6 5-6 5" stroke="#3c424e" stroke-width="1.5" fill="none"/>
+
+    <rect x="486" y="862" width="166" height="56" rx="12" fill="#1b2029"/>
+    <text class="fg" x="504" y="886" font-size="10.5">JD parsing</text>
+    <text class="dim" x="504" y="904" font-size="9">required vs preferred</text>
+
+    <path d="M660 890h26" stroke="#3c424e" stroke-width="1.5"/>
+    <path d="M680 885l6 5-6 5" stroke="#3c424e" stroke-width="1.5" fill="none"/>
+
+    <rect x="694" y="862" width="166" height="56" rx="12" fill="#c8ff4d" fill-opacity="0.13"/>
+    <text class="acc" x="712" y="886" font-size="10.5">Matcher</text>
+    <text class="dim" x="712" y="904" font-size="9">score · rank · diff</text>
+
+    <path d="M868 890h26" stroke="#3c424e" stroke-width="1.5"/>
+    <path d="M888 885l6 5-6 5" stroke="#3c424e" stroke-width="1.5" fill="none"/>
+
+    <rect x="902" y="862" width="126" height="56" rx="12" fill="#1b2029"/>
+    <text class="fg" x="920" y="886" font-size="10.5">Report</text>
+    <text class="dim" x="920" y="904" font-size="9">persisted</text>
+  </g>
+</svg>

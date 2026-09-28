@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Air filter health monitoring dashboard">
+  <defs>
+    <linearGradient id="hz" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff5f56"/><stop offset="0.45" stop-color="#ffb86b"/><stop offset="1" stop-color="#c8ff4d"/>
+    </linearGradient>
+    <linearGradient id="pz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8f8cff" stop-opacity="0.28"/><stop offset="1" stop-color="#8f8cff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb86b" stop-opacity="0.26"/><stop offset="1" stop-color="#ffb86b" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .h{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:600}
+      .b{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:400}
+      .m{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-weight:500}
+      .fg{fill:#eef0f2}.mut{fill:#8d93a0}.dim{fill:#5f6674}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#07080a"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1600" height="92" fill="#0b0d11"/>
+  <line x1="0" y1="92" x2="1600" y2="92" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="48" y="28" width="34" height="34" rx="9" fill="#8f8cff"/>
+  <path d="M57 45h6m-6-6h12m-12 12h9" stroke="#0d0a24" stroke-width="2.6" stroke-linecap="round"/>
+  <text class="h fg" x="94" y="45" font-size="17">Filter Health Monitor</text>
+  <text class="m dim" x="94" y="61" font-size="9.5" letter-spacing="1.4">TSMIXER · REGRESSION + CLASSIFICATION</text>
+
+  <rect x="1050" y="30" width="146" height="32" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <circle cx="1070" cy="46" r="4" fill="#c8ff4d"/>
+  <text class="m mut" x="1084" y="50" font-size="10.5">API healthy</text>
+  <rect x="1208" y="30" width="150" height="32" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m mut" x="1226" y="50" font-size="10.5">model v1.4.2</text>
+  <rect x="1370" y="30" width="182" height="32" rx="16" fill="#8f8cff"/>
+  <text class="h" x="1392" y="50" font-size="11.5" fill="#0d0a24">Run prediction</text>
+
+  <!-- Unit selector -->
+  <text class="m dim" x="48" y="136" font-size="9" letter-spacing="1.8">UNIT</text>
+  <g class="m" font-size="11">
+    <rect x="48" y="148" width="132" height="34" rx="9" fill="#8f8cff" fill-opacity="0.14" stroke="#8f8cff" stroke-opacity="0.4"/>
+    <text x="64" y="169" fill="#a5a2ff">AHU-03 · Floor 2</text>
+    <rect x="192" y="148" width="116" height="34" rx="9" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text class="mut" x="208" y="169">AHU-01</text>
+    <rect x="320" y="148" width="116" height="34" rx="9" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text class="mut" x="336" y="169">AHU-02</text>
+    <rect x="448" y="148" width="116" height="34" rx="9" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text class="mut" x="464" y="169">AHU-04</text>
+  </g>
+  <text class="m dim" x="1320" y="169" font-size="10">window: 168 h · 5 min interval</text>
+
+  <!-- Health gauge card -->
+  <rect x="48" y="212" width="500" height="326" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="76" y="246" font-size="9" letter-spacing="1.8">PREDICTED FILTER HEALTH</text>
+
+  <!-- arc gauge -->
+  <path d="M136 424a112 112 0 0 1 224 0" fill="none" stroke="#1b2029" stroke-width="18" stroke-linecap="round"/>
+  <path d="M136 424a112 112 0 0 1 174 -87" fill="none" stroke="url(#hz)" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="310" cy="337" r="9" fill="#0d0f13" stroke="#ffb86b" stroke-width="4"/>
+
+  <text class="h fg" x="196" y="416" font-size="58">61</text>
+  <text class="h mut" x="284" y="416" font-size="24">%</text>
+  <text class="m dim" x="196" y="440" font-size="9.5" letter-spacing="1.4">REGRESSION HEAD</text>
+
+  <g class="m dim" font-size="9">
+    <text x="120" y="450">0</text><text x="352" y="450">100</text>
+  </g>
+
+  <!-- decision -->
+  <rect x="76" y="470" width="444" height="44" rx="12" fill="#ffb86b" fill-opacity="0.12"/>
+  <circle cx="104" cy="492" r="9" fill="#ffb86b" fill-opacity="0.3"/>
+  <path d="M104 487v5m0 4v.5" stroke="#ffb86b" stroke-width="2" stroke-linecap="round"/>
+  <text class="h" x="126" y="490" font-size="12.5" fill="#ffb86b">SERVICE SOON</text>
+  <text class="m dim" x="126" y="506" font-size="10">classification head · confidence 0.87</text>
+
+  <!-- Remaining life -->
+  <rect x="572" y="212" width="238" height="156" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="596" y="244" font-size="9" letter-spacing="1.8">EST. REMAINING LIFE</text>
+  <text class="h fg" x="596" y="298" font-size="40">11</text>
+  <text class="h mut" x="642" y="298" font-size="16">days</text>
+  <text class="m dim" x="596" y="330" font-size="10">was 19 days at last sweep</text>
+  <path d="M596 348h190" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
+  <path d="M596 348h108" stroke="#ffb86b" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="834" y="212" width="238" height="156" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="858" y="244" font-size="9" letter-spacing="1.8">PRESSURE DROP</text>
+  <text class="h fg" x="858" y="298" font-size="40">248</text>
+  <text class="h mut" x="936" y="298" font-size="16">Pa</text>
+  <text class="m" x="858" y="330" font-size="10" fill="#ff8079">▲ 38 Pa over 7 days</text>
+  <path d="M858 348h190" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
+  <path d="M858 348h146" stroke="#ff8079" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="1096" y="212" width="238" height="156" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="1120" y="244" font-size="9" letter-spacing="1.8">AIRFLOW</text>
+  <text class="h fg" x="1120" y="298" font-size="40">0.82</text>
+  <text class="h mut" x="1210" y="298" font-size="14">m³/s</text>
+  <text class="m dim" x="1120" y="330" font-size="10">nominal 0.95 m³/s</text>
+  <path d="M1120 348h190" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1120 348h152" stroke="#c8ff4d" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="1358" y="212" width="194" height="156" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="1382" y="244" font-size="9" letter-spacing="1.8">INFERENCE</text>
+  <text class="h fg" x="1382" y="298" font-size="40">42</text>
+  <text class="h mut" x="1430" y="298" font-size="16">ms</text>
+  <text class="m dim" x="1382" y="330" font-size="10">warm model, p95</text>
+  <path d="M1382 348h146" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1382 348h34" stroke="#c8ff4d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Sensor series -->
+  <rect x="572" y="392" width="980" height="342" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="600" y="428" font-size="15">Sensor window &amp; predicted trajectory</text>
+  <g>
+    <circle cx="1130" cy="424" r="4" fill="#8f8cff"/><text class="b mut" x="1142" y="428" font-size="11">Pressure drop</text>
+    <circle cx="1262" cy="424" r="4" fill="#ffb86b"/><text class="b mut" x="1274" y="428" font-size="11">Health</text>
+    <rect x="1340" y="420" width="16" height="2" fill="#7de2d1"/>
+    <text class="b mut" x="1364" y="428" font-size="11">Forecast</text>
+  </g>
+
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <line x1="600" y1="690" x2="1524" y2="690"/><line x1="600" y1="630" x2="1524" y2="630"/>
+    <line x1="600" y1="570" x2="1524" y2="570"/><line x1="600" y1="510" x2="1524" y2="510"/><line x1="600" y1="450" x2="1524" y2="450"/>
+  </g>
+
+  <!-- observed region divider -->
+  <line x1="1216" y1="446" x2="1216" y2="690" stroke="#7de2d1" stroke-opacity="0.35" stroke-dasharray="3 5"/>
+  <text class="m" x="1226" y="462" font-size="9" fill="#7de2d1">NOW</text>
+
+  <!-- pressure drop (rising) -->
+  <path d="M600 648 L676 640 L752 630 L828 618 L904 604 L980 588 L1056 572 L1132 556 L1216 538 L1216 690 L600 690 Z" fill="url(#pz)"/>
+  <path d="M600 648 L676 640 L752 630 L828 618 L904 604 L980 588 L1056 572 L1132 556 L1216 538"
+        fill="none" stroke="#8f8cff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- health (falling) -->
+  <path d="M600 486 L676 494 L752 500 L828 510 L904 522 L980 534 L1056 548 L1132 560 L1216 576 L1216 690 L600 690 Z" fill="url(#fz)"/>
+  <path d="M600 486 L676 494 L752 500 L828 510 L904 522 L980 534 L1056 548 L1132 560 L1216 576"
+        fill="none" stroke="#ffb86b" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="1216" cy="576" r="5" fill="#0d0f13" stroke="#ffb86b" stroke-width="2.4"/>
+
+  <!-- forecast -->
+  <path d="M1216 576 L1292 596 L1368 618 L1444 642 L1524 668"
+        fill="none" stroke="#7de2d1" stroke-width="2.2" stroke-dasharray="6 6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="1388" y="688" width="136" height="24" rx="8" fill="#0b0d11" stroke="#7de2d1" stroke-opacity="0.4"/>
+  <text class="m" x="1400" y="704" font-size="9" fill="#7de2d1">THRESHOLD IN 11 D</text>
+
+  <!-- threshold line -->
+  <line x1="600" y1="668" x2="1524" y2="668" stroke="#ff5f56" stroke-opacity="0.45" stroke-dasharray="5 6"/>
+  <text class="m" x="604" y="664" font-size="9" fill="#ff8079">REPLACE THRESHOLD · 35%</text>
+
+  <g class="m dim" font-size="9">
+    <text x="596" y="712">D-7</text><text x="748" y="712">D-5</text><text x="900" y="712">D-3</text>
+    <text x="1052" y="712">D-1</text><text x="1208" y="712">TODAY</text><text x="1360" y="712">D+5</text><text x="1490" y="712">D+11</text>
+  </g>
+
+  <!-- Feature pipeline -->
+  <rect x="48" y="562" width="500" height="172" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="76" y="596" font-size="14">Feature pipeline</text>
+  <text class="b dim" x="76" y="616" font-size="11">Shared by training and inference</text>
+
+  <g class="m" font-size="10">
+    <rect x="76" y="634" width="96" height="30" rx="8" fill="#1b2029"/><text class="mut" x="92" y="653">window</text>
+    <path d="M178 649h14" stroke="#3c424e" stroke-width="1.4"/>
+    <rect x="196" y="634" width="96" height="30" rx="8" fill="#1b2029"/><text class="mut" x="208" y="653">rolling μ/σ</text>
+    <path d="M298 649h14" stroke="#3c424e" stroke-width="1.4"/>
+    <rect x="316" y="634" width="96" height="30" rx="8" fill="#1b2029"/><text class="mut" x="336" y="653">deltas</text>
+    <path d="M418 649h14" stroke="#3c424e" stroke-width="1.4"/>
+    <rect x="436" y="634" width="84" height="30" rx="8" fill="#8f8cff" fill-opacity="0.16"/><text x="450" y="653" fill="#a5a2ff">scaler</text>
+  </g>
+  <text class="m dim" x="76" y="700" font-size="9.5">Scalers are versioned with the weights and loaded as one artefact</text>
+  <text class="m dim" x="76" y="718" font-size="9.5">bundle, so training and serving cannot drift apart.</text>
+
+  <!-- Request log -->
+  <rect x="48" y="758" width="1504" height="198" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="76" y="792" font-size="14">Recent predictions</text>
+  <text class="m dim" x="1360" y="792" font-size="9.5">POST /api/v1/predict</text>
+
+  <g class="m dim" font-size="9" letter-spacing="1.2">
+    <text x="76" y="824">TIME</text><text x="240" y="824">UNIT</text><text x="400" y="824">HEALTH</text>
+    <text x="560" y="824">DECISION</text><text x="780" y="824">CONFIDENCE</text><text x="960" y="824">MODEL</text><text x="1180" y="824">LATENCY</text><text x="1400" y="824">STATUS</text>
+  </g>
+  <line x1="76" y1="836" x2="1524" y2="836" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <g class="m" font-size="10.5">
+    <text class="mut" x="76" y="864">21:42:08</text><text class="fg" x="240" y="864">AHU-03</text><text class="fg" x="400" y="864">61.4%</text>
+    <text x="560" y="864" fill="#ffb86b">service soon</text><text class="fg" x="780" y="864">0.87</text>
+    <text class="mut" x="960" y="864">v1.4.2</text><text class="mut" x="1180" y="864">41 ms</text>
+    <text x="1400" y="864" fill="#c8ff4d">200</text>
+    <line x1="76" y1="878" x2="1524" y2="878" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="mut" x="76" y="904">21:37:08</text><text class="fg" x="240" y="904">AHU-01</text><text class="fg" x="400" y="904">88.2%</text>
+    <text x="560" y="904" fill="#c8ff4d">keep</text><text class="fg" x="780" y="904">0.94</text>
+    <text class="mut" x="960" y="904">v1.4.2</text><text class="mut" x="1180" y="904">38 ms</text>
+    <text x="1400" y="904" fill="#c8ff4d">200</text>
+    <line x1="76" y1="918" x2="1524" y2="918" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="mut" x="76" y="944">21:32:08</text><text class="fg" x="240" y="944">AHU-04</text><text class="dim" x="400" y="944">—</text>
+    <text class="dim" x="560" y="944">rejected</text><text class="dim" x="780" y="944">—</text>
+    <text class="mut" x="960" y="944">v1.4.2</text><text class="mut" x="1180" y="944">3 ms</text>
+    <text x="1400" y="944" fill="#ff8079">422 window gap</text>
+  </g>
+</svg>

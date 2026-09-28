@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="LightBase generated REST API reference">
+  <defs>
+    <style>
+      .h{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:600}
+      .b{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:400}
+      .m{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-weight:500}
+      .fg{fill:#eef0f2}.mut{fill:#8d93a0}.dim{fill:#5f6674}.acc{fill:#7de2d1}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#07080a"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="288" height="1000" fill="#0b0d11"/>
+  <line x1="288" y1="0" x2="288" y2="1000" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="28" y="28" width="32" height="32" rx="9" fill="#7de2d1"/>
+  <path d="M38 50l6-14 6 14" stroke="#06231f" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="h fg" x="70" y="43" font-size="16">LightBase</text>
+  <text class="m dim" x="70" y="57" font-size="8.5" letter-spacing="1.6">API REFERENCE</text>
+
+  <rect x="20" y="88" width="248" height="34" rx="9" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="38" y="109" font-size="10.5">search endpoints…</text>
+
+  <text class="m dim" x="28" y="158" font-size="9" letter-spacing="2">AUTH</text>
+  <g class="m" font-size="10.5">
+    <rect x="28" y="170" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="183" fill="#c8ff4d">POST</text>
+    <text class="mut" x="76" y="183">/auth/signup</text>
+    <rect x="28" y="198" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="211" fill="#c8ff4d">POST</text>
+    <text class="mut" x="76" y="211">/auth/login</text>
+    <rect x="28" y="226" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="239" fill="#c8ff4d">POST</text>
+    <text class="mut" x="76" y="239">/auth/refresh</text>
+    <rect x="28" y="254" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="267" fill="#c8ff4d">POST</text>
+    <text class="mut" x="76" y="267">/auth/logout</text>
+  </g>
+
+  <text class="m dim" x="28" y="310" font-size="9" letter-spacing="2">REST · GENERATED</text>
+  <g class="m" font-size="10.5">
+    <rect x="20" y="320" width="248" height="28" rx="8" fill="#7de2d1" fill-opacity="0.12"/>
+    <rect x="20" y="326" width="2.5" height="16" rx="1.25" fill="#7de2d1"/>
+    <rect x="34" y="325" width="30" height="17" rx="4" fill="#7de2d1" fill-opacity="0.2"/><text class="acc" x="40" y="338">GET</text>
+    <text class="acc" x="76" y="338">/rest/v1/users</text>
+
+    <rect x="34" y="361" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="41" y="374" fill="#c8ff4d">POST</text>
+    <text class="mut" x="82" y="374">/rest/v1/users</text>
+
+    <rect x="34" y="389" width="42" height="17" rx="4" fill="#ffb86b" fill-opacity="0.16"/><text x="40" y="402" fill="#ffb86b">PATCH</text>
+    <text class="mut" x="88" y="402">/rest/v1/users</text>
+
+    <rect x="34" y="417" width="30" height="17" rx="4" fill="#ff5f56" fill-opacity="0.16"/><text x="39" y="430" fill="#ff8079">DEL</text>
+    <text class="mut" x="76" y="430">/rest/v1/users</text>
+
+    <rect x="34" y="453" width="30" height="17" rx="4" fill="#7de2d1" fill-opacity="0.16"/><text class="mut" x="40" y="466">GET</text>
+    <text class="mut" x="76" y="466">/rest/v1/projects</text>
+
+    <rect x="34" y="481" width="30" height="17" rx="4" fill="#7de2d1" fill-opacity="0.16"/><text class="mut" x="40" y="494">GET</text>
+    <text class="mut" x="76" y="494">/rest/v1/sessions</text>
+
+    <rect x="34" y="509" width="30" height="17" rx="4" fill="#7de2d1" fill-opacity="0.16"/><text class="mut" x="40" y="522">GET</text>
+    <text class="mut" x="76" y="522">/rest/v1/audit_log</text>
+  </g>
+
+  <text class="m dim" x="28" y="566" font-size="9" letter-spacing="2">META</text>
+  <g class="m mut" font-size="10.5">
+    <text x="76" y="590">/meta/schema</text>
+    <text x="76" y="618">/meta/health</text>
+    <text x="76" y="646">/meta/version</text>
+  </g>
+
+  <rect x="20" y="900" width="248" height="72" rx="12" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="36" y="924" font-size="9" letter-spacing="1.4">ENDPOINTS GENERATED</text>
+  <text class="h acc" x="36" y="950" font-size="20">28</text>
+  <text class="m dim" x="80" y="950" font-size="9.5">from 6 tables</text>
+
+  <!-- Main -->
+  <rect x="324" y="28" width="30" height="19" rx="5" fill="#7de2d1" fill-opacity="0.2"/>
+  <text class="m acc" x="330" y="42" font-size="10.5">GET</text>
+  <text class="m fg" x="366" y="43" font-size="17">/rest/v1/users</text>
+  <text class="b mut" x="324" y="70" font-size="12.5">Derived from the public exposure of <tspan class="m acc">public.users</tspan>. Filters, ordering and pagination are part of the generated contract.</text>
+  <line x1="288" y1="98" x2="1600" y2="98" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <!-- Query params -->
+  <text class="h fg" x="324" y="136" font-size="14">Query parameters</text>
+  <rect x="324" y="152" width="736" height="300" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="324" y="152" width="736" height="36" rx="14" fill="#171b22"/>
+  <rect x="324" y="172" width="736" height="16" fill="#171b22"/>
+  <g class="m dim" font-size="9" letter-spacing="1.2">
+    <text x="348" y="175">PARAM</text><text x="530" y="175">TYPE</text><text x="660" y="175">EXAMPLE</text><text x="900" y="175">NOTE</text>
+  </g>
+  <line x1="324" y1="188" x2="1060" y2="188" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <g class="m" font-size="10.5">
+    <text class="acc" x="348" y="216">select</text><text class="mut" x="530" y="216">csv</text>
+    <text class="fg" x="660" y="216">id,email,role</text><text class="dim" x="900" y="216">public columns only</text>
+    <line x1="324" y1="232" x2="1060" y2="232" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="acc" x="348" y="260">eq / neq</text><text class="mut" x="530" y="260">operator</text>
+    <text class="fg" x="660" y="260">role=eq.admin</text><text class="dim" x="900" y="260">bound parameter</text>
+    <line x1="324" y1="276" x2="1060" y2="276" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="acc" x="348" y="304">gt / gte / lt / lte</text><text class="mut" x="530" y="304">operator</text>
+    <text class="fg" x="660" y="304">created_at=gte.2026</text><text class="dim" x="900" y="304">closed operator set</text>
+    <line x1="324" y1="320" x2="1060" y2="320" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="acc" x="348" y="348">like / ilike</text><text class="mut" x="530" y="348">operator</text>
+    <text class="fg" x="660" y="348">email=ilike.*dev</text><text class="dim" x="900" y="348">escaped server-side</text>
+    <line x1="324" y1="364" x2="1060" y2="364" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="acc" x="348" y="392">order</text><text class="mut" x="530" y="392">csv</text>
+    <text class="fg" x="660" y="392">created_at.desc</text><text class="dim" x="900" y="392">validated identifier</text>
+    <line x1="324" y1="408" x2="1060" y2="408" stroke="#ffffff" stroke-opacity="0.05"/>
+
+    <text class="acc" x="348" y="436">limit / cursor</text><text class="mut" x="530" y="436">int / opaque</text>
+    <text class="fg" x="660" y="436">limit=20</text><text class="dim" x="900" y="436">keyset by default</text>
+  </g>
+
+  <!-- Try it -->
+  <text class="h fg" x="324" y="500" font-size="14">Request</text>
+  <rect x="324" y="516" width="736" height="182" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <g class="m" font-size="10.5">
+    <text class="dim" x="348" y="548">curl</text><text class="fg" x="384" y="548">https://localhost:8080/rest/v1/users \</text>
+    <text class="dim" x="372" y="570">-H</text><text class="acc" x="396" y="570">"Authorization: Bearer $ACCESS_TOKEN"</text><text class="fg" x="700" y="570">\</text>
+    <text class="dim" x="372" y="592">-H</text><text class="acc" x="396" y="592">"Accept: application/json"</text><text class="fg" x="604" y="592">\</text>
+    <text class="dim" x="372" y="614">-G</text><text class="fg" x="396" y="614">\</text>
+    <text class="dim" x="372" y="636">--data-urlencode</text><text class="acc" x="512" y="636">"role=eq.admin"</text><text class="fg" x="632" y="636">\</text>
+    <text class="dim" x="372" y="658">--data-urlencode</text><text class="acc" x="512" y="658">"order=created_at.desc"</text>
+  </g>
+
+  <!-- Response -->
+  <text class="h fg" x="1092" y="136" font-size="14">Response</text>
+  <rect x="1356" y="120" width="72" height="22" rx="11" fill="#c8ff4d" fill-opacity="0.14"/>
+  <text class="m" x="1368" y="135" font-size="9.5" fill="#c8ff4d">200 OK</text>
+  <rect x="1440" y="120" width="112" height="22" rx="11" fill="#171b22"/>
+  <text class="m dim" x="1452" y="135" font-size="9.5">11 ms · 2 rows</text>
+
+  <rect x="1092" y="152" width="460" height="546" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <g class="m" font-size="10.5">
+    <text class="dim" x="1116" y="182">{</text>
+    <text class="acc" x="1132" y="200">"data"</text><text class="dim" x="1180" y="200">: [</text>
+    <text class="dim" x="1148" y="218">{</text>
+    <text class="acc" x="1164" y="236">"id"</text><text class="dim" x="1196" y="236">:</text><text class="fg" x="1206" y="236">"01H9Z…4kQ"</text><text class="dim" x="1300" y="236">,</text>
+    <text class="acc" x="1164" y="254">"email"</text><text class="dim" x="1216" y="254">:</text><text class="fg" x="1226" y="254">"ada@…dev"</text><text class="dim" x="1318" y="254">,</text>
+    <text class="acc" x="1164" y="272">"role"</text><text class="dim" x="1208" y="272">:</text><text class="fg" x="1218" y="272">"admin"</text><text class="dim" x="1270" y="272">,</text>
+    <text class="acc" x="1164" y="290">"created_at"</text><text class="dim" x="1256" y="290">:</text>
+    <text class="fg" x="1180" y="308">"2025-11-02T09:14:22Z"</text>
+    <text class="dim" x="1148" y="326">},</text>
+    <text class="dim" x="1148" y="344">{</text>
+    <text class="acc" x="1164" y="362">"id"</text><text class="dim" x="1196" y="362">:</text><text class="fg" x="1206" y="362">"01H9Z…3nH"</text><text class="dim" x="1300" y="362">,</text>
+    <text class="acc" x="1164" y="380">"email"</text><text class="dim" x="1216" y="380">:</text><text class="fg" x="1226" y="380">"margaret@…dev"</text>
+    <text class="dim" x="1164" y="398">,</text>
+    <text class="acc" x="1174" y="398">"role"</text><text class="dim" x="1218" y="398">:</text><text class="fg" x="1228" y="398">"admin"</text><text class="dim" x="1280" y="398">,</text>
+    <text class="acc" x="1164" y="416">"created_at"</text><text class="dim" x="1256" y="416">:</text>
+    <text class="fg" x="1180" y="434">"2026-08-21T13:09:47Z"</text>
+    <text class="dim" x="1148" y="452">}</text>
+    <text class="dim" x="1132" y="470">],</text>
+    <text class="acc" x="1132" y="488">"page"</text><text class="dim" x="1180" y="488">: {</text>
+    <text class="acc" x="1148" y="506">"limit"</text><text class="dim" x="1200" y="506">:</text><text x="1210" y="506" fill="#c8ff4d">20</text><text class="dim" x="1230" y="506">,</text>
+    <text class="acc" x="1148" y="524">"next_cursor"</text><text class="dim" x="1248" y="524">:</text>
+    <text class="fg" x="1164" y="542">"eyJjcmVhdGVkX2F0…"</text>
+    <text class="dim" x="1132" y="560">}</text>
+    <text class="dim" x="1116" y="578">}</text>
+  </g>
+
+  <line x1="1116" y1="612" x2="1528" y2="612" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="1116" y="640" font-size="9" letter-spacing="1.4">HEADERS</text>
+  <g class="m" font-size="10">
+    <text class="mut" x="1116" y="664">content-type:</text><text class="fg" x="1230" y="664">application/json</text>
+    <text class="mut" x="1116" y="682">x-lightbase-ver:</text><text class="fg" x="1252" y="682">0.6.2</text>
+  </g>
+
+  <!-- Footer note -->
+  <rect x="324" y="726" width="1228" height="86" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <circle cx="360" cy="769" r="12" fill="#7de2d1" fill-opacity="0.13"/>
+  <path d="M360 762v9m0-14v1" stroke="#7de2d1" stroke-width="2" stroke-linecap="round"/>
+  <text class="b mut" x="392" y="762" font-size="12">Routes are regenerated from the Postgres catalog at boot and invalidated on migration. A column</text>
+  <text class="b mut" x="392" y="782" font-size="12">that is not in the exposure layer has no endpoint, so a rename is never a breaking API change.</text>
+
+  <!-- Health strip -->
+  <rect x="324" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="348" y="868" font-size="9" letter-spacing="1.4">GATEWAY</text>
+  <circle cx="356" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="372" y="901" font-size="15">healthy</text>
+  <text class="m dim" x="348" y="928" font-size="9.5">p95 18 ms · 0 errors / 5 min</text>
+
+  <rect x="740" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="764" y="868" font-size="9" letter-spacing="1.4">AUTH SERVICE</text>
+  <circle cx="772" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="788" y="901" font-size="15">healthy</text>
+  <text class="m dim" x="764" y="928" font-size="9.5">341 active sessions</text>
+
+  <rect x="1156" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m dim" x="1180" y="868" font-size="9" letter-spacing="1.4">POSTGRES</text>
+  <circle cx="1188" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="1204" y="901" font-size="15">connected</text>
+  <text class="m dim" x="1180" y="928" font-size="9.5">pool 4/20 · 31 migrations</text>
+</svg>

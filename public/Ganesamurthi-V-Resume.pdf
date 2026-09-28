@@ -1,0 +1,68 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 2271 >>
+stream
+BT /F1 26 Tf 60 770 Td (Ganesamurthi V) Tj ET
+BT /F2 13 Tf 60 746 Td (Full-Stack Developer) Tj ET
+BT /F2 10 Tf 60 726 Td (ganesamurthiv@gmail.com  |  +91 93848 86895  |  github.com/Ganesamurthi-V) Tj ET
+BT /F1 12 Tf 60 682 Td (PLACEHOLDER) Tj ET
+BT /F2 10.5 Tf 60 662 Td (This is a placeholder file so the resume links on the portfolio resolve.) Tj ET
+BT /F2 10.5 Tf 60 646 Td (Replace public/Ganesamurthi-V-Resume.pdf with the real CV.) Tj ET
+BT /F1 12 Tf 60 602 Td (PROFILE) Tj ET
+BT /F2 10.5 Tf 60 582 Td (Computer Science and Business Systems undergraduate focused on full-stack) Tj ET
+BT /F2 10.5 Tf 60 566 Td (development. Builds web applications across frontend, backend, database and) Tj ET
+BT /F2 10.5 Tf 60 550 Td (deployment layers, with an interest in SaaS products.) Tj ET
+BT /F1 12 Tf 60 506 Td (SELECTED PROJECTS) Tj ET
+BT /F1 10.5 Tf 60 486 Td (GymFlow - Gym Management SaaS \(live\)) Tj ET
+BT /F2 10.5 Tf 60 470 Td (Multi-tenant SaaS for independent gyms. Owner console plus member PWA,) Tj ET
+BT /F2 10.5 Tf 60 454 Td (payments, dues, attendance and WhatsApp renewal automation.) Tj ET
+BT /F2 9.5 Tf 60 438 Td (Next.js, TypeScript, PostgreSQL, Supabase  |  gymflow.sbs) Tj ET
+BT /F1 10.5 Tf 60 410 Td (LightBase - Open Source Backend Platform) Tj ET
+BT /F2 10.5 Tf 60 394 Td (Self-hostable backend: auth, generated REST APIs and a data console.) Tj ET
+BT /F2 9.5 Tf 60 378 Td (TypeScript, PostgreSQL, Docker) Tj ET
+BT /F1 10.5 Tf 60 350 Td (Air Filter Prediction System) Tj ET
+BT /F2 10.5 Tf 60 334 Td (Predictive maintenance service exposing filter-health models over a Flask API.) Tj ET
+BT /F2 9.5 Tf 60 318 Td (Python, Flask, TSMixer) Tj ET
+BT /F1 12 Tf 60 274 Td (EXPERIENCE) Tj ET
+BT /F1 10.5 Tf 60 254 Td (Software Development Intern - Iinvsys) Tj ET
+BT /F2 9.5 Tf 60 238 Td (June 2025 - August 2025) Tj ET
+BT /F2 10.5 Tf 60 220 Td (Built and deployed an AI-powered Air Filter Prediction System: preprocessing,) Tj ET
+BT /F2 10.5 Tf 60 204 Td (feature engineering, model training, Flask REST APIs and production deployment.) Tj ET
+BT /F1 12 Tf 60 160 Td (EDUCATION) Tj ET
+BT /F2 10.5 Tf 60 140 Td (B.Tech, Computer Science and Business Systems) Tj ET
+BT /F2 10.5 Tf 60 124 Td (Sri Manakula Vinayagar Engineering College - Expected May 2027) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Title (Ganesamurthi V - Full-Stack Developer) /Author (Ganesamurthi V) /Producer (portfolio placeholder) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000353 00000 n 
+0000000450 00000 n 
+0000002772 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+2899
+%%EOF

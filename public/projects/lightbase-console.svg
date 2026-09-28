@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="LightBase console table editor">
+  <defs>
+    <style>
+      .h{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:600}
+      .b{font-family:'Segoe UI',Inter,system-ui,sans-serif;font-weight:400}
+      .m{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-weight:500}
+      .fg{fill:#eef0f2}.mut{fill:#8d93a0}.dim{fill:#5f6674}.acc{fill:#7de2d1}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#07080a"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="268" height="1000" fill="#0b0d11"/>
+  <line x1="268" y1="0" x2="268" y2="1000" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <rect x="28" y="28" width="32" height="32" rx="9" fill="#7de2d1"/>
+  <path d="M38 50l6-14 6 14" stroke="#06231f" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="h fg" x="70" y="43" font-size="16">LightBase</text>
+  <text class="m dim" x="70" y="57" font-size="8.5" letter-spacing="1.6">SELF-HOSTED</text>
+
+  <!-- project switcher -->
+  <rect x="20" y="86" width="228" height="40" rx="10" fill="#171b22"/>
+  <circle cx="40" cy="106" r="5" fill="#7de2d1"/>
+  <text class="b fg" x="56" y="103" font-size="12.5">local · postgres</text>
+  <text class="m dim" x="56" y="117" font-size="9">:5432 / app</text>
+  <path d="M230 102l5 5 5-5" stroke="#8d93a0" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+  <text class="m dim" x="28" y="164" font-size="9" letter-spacing="2">EXPLORER</text>
+
+  <g class="b">
+    <!-- tables group -->
+    <path d="M34 182l5 5 5-5" stroke="#8d93a0" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <text class="fg" x="56" y="186" font-size="12.5">public</text>
+    <text class="m dim" x="222" y="186" font-size="9">6</text>
+
+    <rect x="20" y="200" width="228" height="30" rx="8" fill="#7de2d1" fill-opacity="0.12"/>
+    <rect x="20" y="206" width="2.5" height="18" rx="1.25" fill="#7de2d1"/>
+    <text class="m acc" x="62" y="220" font-size="11.5">users</text>
+    <text class="m dim" x="214" y="220" font-size="9">128</text>
+
+    <text class="m mut" x="62" y="252" font-size="11.5">sessions</text><text class="m dim" x="214" y="252" font-size="9">341</text>
+    <text class="m mut" x="62" y="282" font-size="11.5">projects</text><text class="m dim" x="218" y="282" font-size="9">12</text>
+    <text class="m mut" x="62" y="312" font-size="11.5">api_keys</text><text class="m dim" x="222" y="312" font-size="9">8</text>
+    <text class="m mut" x="62" y="342" font-size="11.5">audit_log</text><text class="m dim" x="206" y="342" font-size="9">2.4k</text>
+    <text class="m mut" x="62" y="372" font-size="11.5">migrations</text><text class="m dim" x="218" y="372" font-size="9">31</text>
+  </g>
+
+  <text class="m dim" x="28" y="424" font-size="9" letter-spacing="2">PLATFORM</text>
+  <g class="b mut" font-size="12.5">
+    <text x="56" y="452">Auth providers</text>
+    <text x="56" y="484">API keys</text>
+    <text x="56" y="516">Policies</text>
+    <text x="56" y="548">SQL editor</text>
+    <text x="56" y="580">Logs</text>
+    <text x="56" y="612">Migrations</text>
+  </g>
+
+  <rect x="20" y="900" width="228" height="72" rx="12" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <circle cx="40" cy="924" r="4" fill="#c8ff4d"/>
+  <text class="m fg" x="54" y="928" font-size="10">3 services healthy</text>
+  <text class="m dim" x="36" y="948" font-size="9">gateway · auth · rest</text>
+  <text class="m dim" x="36" y="962" font-size="9">v0.6.2 · MIT</text>
+
+  <!-- ===== Header ===== -->
+  <g class="m dim" font-size="11">
+    <text x="304" y="46">public</text><text x="352" y="46" fill="#3c424e">/</text>
+  </g>
+  <text class="h fg" x="366" y="47" font-size="20">users</text>
+  <rect x="446" y="30" width="72" height="22" rx="6" fill="#7de2d1" fill-opacity="0.12"/>
+  <text class="m acc" x="458" y="45" font-size="9.5">RLS ON</text>
+
+  <rect x="1060" y="26" width="118" height="34" rx="17" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="b mut" x="1080" y="47" font-size="12">SQL editor</text>
+  <rect x="1190" y="26" width="98" height="34" rx="17" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="b mut" x="1210" y="47" font-size="12">Policies</text>
+  <rect x="1300" y="26" width="112" height="34" rx="17" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="b mut" x="1320" y="47" font-size="12">Insert row</text>
+  <rect x="1424" y="26" width="140" height="34" rx="17" fill="#7de2d1"/>
+  <text class="h" x="1446" y="47" font-size="12" fill="#06231f">Generate API</text>
+
+  <line x1="268" y1="80" x2="1600" y2="80" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <!-- filter bar -->
+  <rect x="304" y="104" width="120" height="32" rx="8" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m mut" x="320" y="124" font-size="10.5">+ filter</text>
+  <rect x="436" y="104" width="120" height="32" rx="8" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m mut" x="452" y="124" font-size="10.5">↑ sort</text>
+  <rect x="568" y="104" width="150" height="32" rx="8" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="m mut" x="584" y="124" font-size="10.5">limit 50 · keyset</text>
+  <text class="m dim" x="1420" y="124" font-size="10.5">128 rows · 14 ms</text>
+
+  <!-- ===== Table ===== -->
+  <rect x="304" y="152" width="1260" height="492" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <rect x="304" y="152" width="1260" height="42" rx="14" fill="#171b22"/>
+  <rect x="304" y="176" width="1260" height="18" fill="#171b22"/>
+
+  <g class="m dim" font-size="9" letter-spacing="1.2">
+    <text x="328" y="178">id</text><text x="436" y="178">email</text><text x="740" y="178">role</text>
+    <text x="880" y="178">email_verified</text><text x="1060" y="178">created_at</text><text x="1300" y="178">last_seen_at</text>
+  </g>
+  <line x1="304" y1="194" x2="1564" y2="194" stroke="#ffffff" stroke-opacity="0.07"/>
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <line x1="424" y1="152" x2="424" y2="644"/><line x1="728" y1="152" x2="728" y2="644"/>
+    <line x1="868" y1="152" x2="868" y2="644"/><line x1="1048" y1="152" x2="1048" y2="644"/>
+    <line x1="1288" y1="152" x2="1288" y2="644"/>
+  </g>
+
+  <g class="m" font-size="11">
+    <!-- row 1 selected -->
+    <rect x="304" y="194" width="1260" height="44" fill="#7de2d1" fill-opacity="0.06"/>
+    <rect x="304" y="194" width="2.5" height="44" fill="#7de2d1"/>
+    <text class="dim" x="328" y="221">01H9Z…4kQ</text>
+    <text class="fg" x="440" y="221">ada@lightbase.dev</text>
+    <rect x="740" y="207" width="60" height="19" rx="5" fill="#8f8cff" fill-opacity="0.16"/>
+    <text x="750" y="220.5" font-size="9.5" fill="#a5a2ff">admin</text>
+    <text class="acc" x="880" y="221">true</text>
+    <text class="mut" x="1060" y="221">2025-11-02 09:14</text>
+    <text class="mut" x="1300" y="221">2026-09-28 21:40</text>
+
+    <line x1="304" y1="238" x2="1564" y2="238" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="265">01H9Z…7bT</text>
+    <text class="fg" x="440" y="265">grace@lightbase.dev</text>
+    <rect x="740" y="251" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="264.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text class="acc" x="880" y="265">true</text>
+    <text class="mut" x="1060" y="265">2025-12-18 17:02</text>
+    <text class="mut" x="1300" y="265">2026-09-27 08:11</text>
+
+    <line x1="304" y1="282" x2="1564" y2="282" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="309">01H9Z…2mR</text>
+    <text class="fg" x="440" y="309">linus@lightbase.dev</text>
+    <rect x="740" y="295" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="308.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text x="880" y="309" fill="#ff8079">false</text>
+    <text class="mut" x="1060" y="309">2026-01-06 11:47</text>
+    <text class="dim" x="1300" y="309">NULL</text>
+
+    <line x1="304" y1="326" x2="1564" y2="326" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="353">01H9Z…9xC</text>
+    <text class="fg" x="440" y="353">barbara@lightbase.dev</text>
+    <rect x="740" y="339" width="76" height="19" rx="5" fill="#ffb86b" fill-opacity="0.16"/>
+    <text x="750" y="352.5" font-size="9.5" fill="#ffb86b">service</text>
+    <text class="acc" x="880" y="353">true</text>
+    <text class="mut" x="1060" y="353">2026-02-11 03:22</text>
+    <text class="mut" x="1300" y="353">2026-09-28 19:58</text>
+
+    <line x1="304" y1="370" x2="1564" y2="370" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="397">01H9Z…5pV</text>
+    <text class="fg" x="440" y="397">alan@lightbase.dev</text>
+    <rect x="740" y="383" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="396.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text class="acc" x="880" y="397">true</text>
+    <text class="mut" x="1060" y="397">2026-03-29 14:36</text>
+    <text class="mut" x="1300" y="397">2026-09-22 12:05</text>
+
+    <line x1="304" y1="414" x2="1564" y2="414" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="441">01H9Z…8dW</text>
+    <text class="fg" x="440" y="441">edsger@lightbase.dev</text>
+    <rect x="740" y="427" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="440.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text class="acc" x="880" y="441">true</text>
+    <text class="mut" x="1060" y="441">2026-05-14 22:18</text>
+    <text class="mut" x="1300" y="441">2026-09-19 07:44</text>
+
+    <line x1="304" y1="458" x2="1564" y2="458" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="485">01H9Z…1jL</text>
+    <text class="fg" x="440" y="485">ken@lightbase.dev</text>
+    <rect x="740" y="471" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="484.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text x="880" y="485" fill="#ff8079">false</text>
+    <text class="mut" x="1060" y="485">2026-07-02 06:51</text>
+    <text class="dim" x="1300" y="485">NULL</text>
+
+    <line x1="304" y1="502" x2="1564" y2="502" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="529">01H9Z…3nH</text>
+    <text class="fg" x="440" y="529">margaret@lightbase.dev</text>
+    <rect x="740" y="515" width="60" height="19" rx="5" fill="#8f8cff" fill-opacity="0.16"/>
+    <text x="750" y="528.5" font-size="9.5" fill="#a5a2ff">admin</text>
+    <text class="acc" x="880" y="529">true</text>
+    <text class="mut" x="1060" y="529">2026-08-21 13:09</text>
+    <text class="mut" x="1300" y="529">2026-09-28 16:27</text>
+
+    <line x1="304" y1="546" x2="1564" y2="546" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="573">01H9Z…6vB</text>
+    <text class="fg" x="440" y="573">radia@lightbase.dev</text>
+    <rect x="740" y="559" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="572.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text class="acc" x="880" y="573">true</text>
+    <text class="mut" x="1060" y="573">2026-09-04 10:33</text>
+    <text class="mut" x="1300" y="573">2026-09-28 20:12</text>
+
+    <line x1="304" y1="590" x2="1564" y2="590" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text class="dim" x="328" y="617">01H9Z…0sK</text>
+    <text class="fg" x="440" y="617">tim@lightbase.dev</text>
+    <rect x="740" y="603" width="54" height="19" rx="5" fill="#7de2d1" fill-opacity="0.14"/>
+    <text x="750" y="616.5" font-size="9.5" fill="#7de2d1">user</text>
+    <text class="acc" x="880" y="617">true</text>
+    <text class="mut" x="1060" y="617">2026-09-20 15:45</text>
+    <text class="mut" x="1300" y="617">2026-09-26 09:30</text>
+  </g>
+
+  <!-- ===== Generated endpoint panel ===== -->
+  <rect x="304" y="672" width="756" height="284" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="328" y="706" font-size="14">Generated endpoint</text>
+  <rect x="984" y="690" width="52" height="24" rx="12" fill="#171b22"/>
+  <text class="m dim" x="996" y="706" font-size="9.5">copy</text>
+
+  <rect x="328" y="724" width="708" height="36" rx="8" fill="#12151b"/>
+  <rect x="340" y="734" width="38" height="17" rx="4" fill="#7de2d1" fill-opacity="0.18"/>
+  <text class="m acc" x="348" y="747" font-size="9.5">GET</text>
+  <text class="m fg" x="390" y="747" font-size="11">/rest/v1/users?role=eq.admin&amp;order=created_at.desc&amp;limit=20</text>
+
+  <text class="m dim" x="328" y="790" font-size="9.5" letter-spacing="1.4">RESPONSE · 200 OK · 11 ms</text>
+  <rect x="328" y="802" width="708" height="130" rx="8" fill="#12151b"/>
+  <g class="m" font-size="10.5">
+    <text class="dim" x="344" y="824">[</text>
+    <text class="dim" x="356" y="842">{</text>
+    <text class="acc" x="372" y="860">"id"</text><text class="dim" x="404" y="860">:</text><text class="fg" x="414" y="860">"01H9Z…4kQ"</text><text class="dim" x="508" y="860">,</text>
+    <text class="acc" x="520" y="860">"email"</text><text class="dim" x="572" y="860">:</text><text class="fg" x="582" y="860">"ada@lightbase.dev"</text><text class="dim" x="726" y="860">,</text>
+    <text class="acc" x="372" y="878">"role"</text><text class="dim" x="416" y="878">:</text><text class="fg" x="426" y="878">"admin"</text><text class="dim" x="478" y="878">,</text>
+    <text class="acc" x="490" y="878">"email_verified"</text><text class="dim" x="606" y="878">:</text><text x="616" y="878" fill="#c8ff4d">true</text>
+    <text class="dim" x="356" y="896">}</text>
+    <text class="dim" x="344" y="914">]</text>
+  </g>
+
+  <!-- ===== Policy panel ===== -->
+  <rect x="1084" y="672" width="480" height="284" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="h fg" x="1108" y="706" font-size="14">Exposure &amp; policies</text>
+
+  <text class="m dim" x="1108" y="742" font-size="9" letter-spacing="1.4">PUBLIC COLUMNS</text>
+  <g class="m" font-size="10.5">
+    <rect x="1108" y="752" width="62" height="22" rx="6" fill="#7de2d1" fill-opacity="0.12"/><text class="acc" x="1120" y="767">id</text>
+    <rect x="1178" y="752" width="76" height="22" rx="6" fill="#7de2d1" fill-opacity="0.12"/><text class="acc" x="1190" y="767">email</text>
+    <rect x="1262" y="752" width="68" height="22" rx="6" fill="#7de2d1" fill-opacity="0.12"/><text class="acc" x="1274" y="767">role</text>
+    <rect x="1338" y="752" width="110" height="22" rx="6" fill="#7de2d1" fill-opacity="0.12"/><text class="acc" x="1350" y="767">created_at</text>
+  </g>
+
+  <text class="m dim" x="1108" y="808" font-size="9" letter-spacing="1.4">WITHHELD</text>
+  <g class="m" font-size="10.5">
+    <rect x="1108" y="818" width="118" height="22" rx="6" fill="#1b2029"/><text class="dim" x="1120" y="833">password_hash</text>
+    <rect x="1234" y="818" width="112" height="22" rx="6" fill="#1b2029"/><text class="dim" x="1246" y="833">refresh_token</text>
+  </g>
+
+  <line x1="1108" y1="866" x2="1540" y2="866" stroke="#ffffff" stroke-opacity="0.07"/>
+  <text class="b mut" x="1108" y="894" font-size="11.5">Identifiers are validated against the</text>
+  <text class="b mut" x="1108" y="912" font-size="11.5">introspected catalog. Values are always</text>
+  <text class="b mut" x="1108" y="930" font-size="11.5">bound parameters — never interpolated.</text>
+</svg>

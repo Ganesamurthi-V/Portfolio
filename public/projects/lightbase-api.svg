@@ -23,13 +23,13 @@
 
   <text class="m dim" x="28" y="158" font-size="9" letter-spacing="2">AUTH</text>
   <g class="m" font-size="10.5">
-    <rect x="28" y="170" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="183" fill="#c8ff4d">POST</text>
+    <rect x="28" y="170" width="36" height="17" rx="4" fill="#e4e4e7" fill-opacity="0.16"/><text x="35" y="183" fill="#e4e4e7">POST</text>
     <text class="mut" x="76" y="183">/auth/signup</text>
-    <rect x="28" y="198" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="211" fill="#c8ff4d">POST</text>
+    <rect x="28" y="198" width="36" height="17" rx="4" fill="#e4e4e7" fill-opacity="0.16"/><text x="35" y="211" fill="#e4e4e7">POST</text>
     <text class="mut" x="76" y="211">/auth/login</text>
-    <rect x="28" y="226" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="239" fill="#c8ff4d">POST</text>
+    <rect x="28" y="226" width="36" height="17" rx="4" fill="#e4e4e7" fill-opacity="0.16"/><text x="35" y="239" fill="#e4e4e7">POST</text>
     <text class="mut" x="76" y="239">/auth/refresh</text>
-    <rect x="28" y="254" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="35" y="267" fill="#c8ff4d">POST</text>
+    <rect x="28" y="254" width="36" height="17" rx="4" fill="#e4e4e7" fill-opacity="0.16"/><text x="35" y="267" fill="#e4e4e7">POST</text>
     <text class="mut" x="76" y="267">/auth/logout</text>
   </g>
 
@@ -40,7 +40,7 @@
     <rect x="34" y="325" width="30" height="17" rx="4" fill="#7de2d1" fill-opacity="0.2"/><text class="acc" x="40" y="338">GET</text>
     <text class="acc" x="76" y="338">/rest/v1/users</text>
 
-    <rect x="34" y="361" width="36" height="17" rx="4" fill="#c8ff4d" fill-opacity="0.16"/><text x="41" y="374" fill="#c8ff4d">POST</text>
+    <rect x="34" y="361" width="36" height="17" rx="4" fill="#e4e4e7" fill-opacity="0.16"/><text x="41" y="374" fill="#e4e4e7">POST</text>
     <text class="mut" x="82" y="374">/rest/v1/users</text>
 
     <rect x="34" y="389" width="42" height="17" rx="4" fill="#ffb86b" fill-opacity="0.16"/><text x="40" y="402" fill="#ffb86b">PATCH</text>
@@ -127,8 +127,8 @@
 
   <!-- Response -->
   <text class="h fg" x="1092" y="136" font-size="14">Response</text>
-  <rect x="1356" y="120" width="72" height="22" rx="11" fill="#c8ff4d" fill-opacity="0.14"/>
-  <text class="m" x="1368" y="135" font-size="9.5" fill="#c8ff4d">200 OK</text>
+  <rect x="1356" y="120" width="72" height="22" rx="11" fill="#e4e4e7" fill-opacity="0.14"/>
+  <text class="m" x="1368" y="135" font-size="9.5" fill="#e4e4e7">200 OK</text>
   <rect x="1440" y="120" width="112" height="22" rx="11" fill="#171b22"/>
   <text class="m dim" x="1452" y="135" font-size="9.5">11 ms · 2 rows</text>
 
@@ -153,7 +153,7 @@
     <text class="dim" x="1148" y="452">}</text>
     <text class="dim" x="1132" y="470">],</text>
     <text class="acc" x="1132" y="488">"page"</text><text class="dim" x="1180" y="488">: {</text>
-    <text class="acc" x="1148" y="506">"limit"</text><text class="dim" x="1200" y="506">:</text><text x="1210" y="506" fill="#c8ff4d">20</text><text class="dim" x="1230" y="506">,</text>
+    <text class="acc" x="1148" y="506">"limit"</text><text class="dim" x="1200" y="506">:</text><text x="1210" y="506" fill="#e4e4e7">20</text><text class="dim" x="1230" y="506">,</text>
     <text class="acc" x="1148" y="524">"next_cursor"</text><text class="dim" x="1248" y="524">:</text>
     <text class="fg" x="1164" y="542">"eyJjcmVhdGVkX2F0…"</text>
     <text class="dim" x="1132" y="560">}</text>
@@ -177,16 +177,16 @@
   <!-- Health strip -->
   <rect x="324" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
   <text class="m dim" x="348" y="868" font-size="9" letter-spacing="1.4">GATEWAY</text>
-  <circle cx="356" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="372" y="901" font-size="15">healthy</text>
+  <circle cx="356" cy="896" r="5" fill="#e4e4e7"/><text class="h fg" x="372" y="901" font-size="15">healthy</text>
   <text class="m dim" x="348" y="928" font-size="9.5">p95 18 ms · 0 errors / 5 min</text>
 
   <rect x="740" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
   <text class="m dim" x="764" y="868" font-size="9" letter-spacing="1.4">AUTH SERVICE</text>
-  <circle cx="772" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="788" y="901" font-size="15">healthy</text>
+  <circle cx="772" cy="896" r="5" fill="#e4e4e7"/><text class="h fg" x="788" y="901" font-size="15">healthy</text>
   <text class="m dim" x="764" y="928" font-size="9.5">341 active sessions</text>
 
   <rect x="1156" y="838" width="396" height="118" rx="14" fill="#0d0f13" stroke="#ffffff" stroke-opacity="0.07"/>
   <text class="m dim" x="1180" y="868" font-size="9" letter-spacing="1.4">POSTGRES</text>
-  <circle cx="1188" cy="896" r="5" fill="#c8ff4d"/><text class="h fg" x="1204" y="901" font-size="15">connected</text>
+  <circle cx="1188" cy="896" r="5" fill="#e4e4e7"/><text class="h fg" x="1204" y="901" font-size="15">connected</text>
   <text class="m dim" x="1180" y="928" font-size="9.5">pool 4/20 · 31 migrations</text>
 </svg>

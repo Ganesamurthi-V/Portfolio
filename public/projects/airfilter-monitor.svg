@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Air filter health monitoring dashboard">
   <defs>
     <linearGradient id="hz" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff5f56"/><stop offset="0.45" stop-color="#ffb86b"/><stop offset="1" stop-color="#c8ff4d"/>
+      <stop offset="0" stop-color="#ff5f56"/><stop offset="0.45" stop-color="#ffb86b"/><stop offset="1" stop-color="#e4e4e7"/>
     </linearGradient>
     <linearGradient id="pz" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#8f8cff" stop-opacity="0.28"/><stop offset="1" stop-color="#8f8cff" stop-opacity="0"/>
@@ -28,7 +28,7 @@
   <text class="m dim" x="94" y="61" font-size="9.5" letter-spacing="1.4">TSMIXER · REGRESSION + CLASSIFICATION</text>
 
   <rect x="1050" y="30" width="146" height="32" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
-  <circle cx="1070" cy="46" r="4" fill="#c8ff4d"/>
+  <circle cx="1070" cy="46" r="4" fill="#e4e4e7"/>
   <text class="m mut" x="1084" y="50" font-size="10.5">API healthy</text>
   <rect x="1208" y="30" width="150" height="32" rx="16" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
   <text class="m mut" x="1226" y="50" font-size="10.5">model v1.4.2</text>
@@ -96,7 +96,7 @@
   <text class="h mut" x="1210" y="298" font-size="14">m³/s</text>
   <text class="m dim" x="1120" y="330" font-size="10">nominal 0.95 m³/s</text>
   <path d="M1120 348h190" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
-  <path d="M1120 348h152" stroke="#c8ff4d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1120 348h152" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
 
   <rect x="1358" y="212" width="194" height="156" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
   <text class="m dim" x="1382" y="244" font-size="9" letter-spacing="1.8">INFERENCE</text>
@@ -104,7 +104,7 @@
   <text class="h mut" x="1430" y="298" font-size="16">ms</text>
   <text class="m dim" x="1382" y="330" font-size="10">warm model, p95</text>
   <path d="M1382 348h146" stroke="#1b2029" stroke-width="4" stroke-linecap="round"/>
-  <path d="M1382 348h34" stroke="#c8ff4d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1382 348h34" stroke="#e4e4e7" stroke-width="4" stroke-linecap="round"/>
 
   <!-- Sensor series -->
   <rect x="572" y="392" width="980" height="342" rx="18" fill="#12151b" stroke="#ffffff" stroke-opacity="0.07"/>
@@ -183,13 +183,13 @@
     <text class="mut" x="76" y="864">21:42:08</text><text class="fg" x="240" y="864">AHU-03</text><text class="fg" x="400" y="864">61.4%</text>
     <text x="560" y="864" fill="#ffb86b">service soon</text><text class="fg" x="780" y="864">0.87</text>
     <text class="mut" x="960" y="864">v1.4.2</text><text class="mut" x="1180" y="864">41 ms</text>
-    <text x="1400" y="864" fill="#c8ff4d">200</text>
+    <text x="1400" y="864" fill="#e4e4e7">200</text>
     <line x1="76" y1="878" x2="1524" y2="878" stroke="#ffffff" stroke-opacity="0.05"/>
 
     <text class="mut" x="76" y="904">21:37:08</text><text class="fg" x="240" y="904">AHU-01</text><text class="fg" x="400" y="904">88.2%</text>
-    <text x="560" y="904" fill="#c8ff4d">keep</text><text class="fg" x="780" y="904">0.94</text>
+    <text x="560" y="904" fill="#e4e4e7">keep</text><text class="fg" x="780" y="904">0.94</text>
     <text class="mut" x="960" y="904">v1.4.2</text><text class="mut" x="1180" y="904">38 ms</text>
-    <text x="1400" y="904" fill="#c8ff4d">200</text>
+    <text x="1400" y="904" fill="#e4e4e7">200</text>
     <line x1="76" y1="918" x2="1524" y2="918" stroke="#ffffff" stroke-opacity="0.05"/>
 
     <text class="mut" x="76" y="944">21:32:08</text><text class="fg" x="240" y="944">AHU-04</text><text class="dim" x="400" y="944">—</text>

@@ -42,13 +42,13 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative scroll-mt-28 py-24 sm:py-32 lg:py-40", className)}
+      className={cn("relative scroll-mt-24 py-14 sm:py-18 lg:py-24", className)}
     >
       {hasHeader && (
         <div className={cn(!bleed && "shell", bleed && "shell")}>
-          <div className="rule mb-10" aria-hidden="true" />
+          <div className="rule mb-8" aria-hidden="true" />
 
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               {(eyebrow || index) && (
                 <AnimatedContent distance={24} duration={0.7} threshold={0.25}>
@@ -104,9 +104,7 @@ export function Section({
         </div>
       )}
 
-      <div className={cn(hasHeader && "mt-14 sm:mt-16 lg:mt-20", innerClassName)}>
-        {children}
-      </div>
+      <div className={cn(hasHeader && "mt-10 sm:mt-12", innerClassName)}>{children}</div>
     </section>
   );
 }

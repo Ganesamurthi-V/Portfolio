@@ -32,7 +32,7 @@ export function CaseStudy({ project, next }: Props) {
        * ---------------------------------------------------------- */}
       <header className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
         <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-          <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(200,255,77,0.11),transparent_70%)]" />
+          <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(255,255,255,0.11),transparent_70%)]" />
           <div className="absolute inset-0 grid-lines radial-fade opacity-45" />
         </div>
 
@@ -125,7 +125,7 @@ export function CaseStudy({ project, next }: Props) {
                     href={project.repo}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="cursor-target inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
+                    className="inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
                   >
                     <GithubIcon className="size-4" />
                     Repository
@@ -136,7 +136,7 @@ export function CaseStudy({ project, next }: Props) {
                     href={project.appUrl}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="cursor-target inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
+                    className="inline-flex items-center gap-2 rounded-full border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
                   >
                     Open the app
                     <ArrowUpRight className="size-3.5" aria-hidden="true" />
@@ -147,7 +147,7 @@ export function CaseStudy({ project, next }: Props) {
                     href={project.demo}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="cursor-target inline-flex items-center gap-2 rounded-full bg-brand px-5 py-3 text-sm font-medium text-brand-foreground"
+                    className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background"
                   >
                     Live site
                     <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -178,7 +178,7 @@ export function CaseStudy({ project, next }: Props) {
        * ---------------------------------------------------------- */}
       <div className="shell">
         <AnimatedContent distance={40} duration={1} threshold={0.1}>
-          <div className="overflow-hidden rounded-3xl border border-hairline bg-surface-2">
+          <div className="overflow-hidden rounded-none border border-hairline bg-surface-2">
             <img
               src={project.image}
               alt={project.imageAlt}
@@ -251,8 +251,8 @@ export function CaseStudy({ project, next }: Props) {
                   threshold={0.12}
                 >
                   <SpotlightCard
-                    className="h-full !rounded-2xl !border-hairline !bg-surface/70 !p-6 sm:!p-7"
-                    spotlightColor="rgba(200, 255, 77, 0.08)"
+                    className="h-full !rounded-none !border-hairline !bg-surface/70 !p-6 sm:!p-7"
+                    spotlightColor="rgba(255, 255, 255, 0.08)"
                   >
                     <h3 className="flex items-start gap-3 font-display text-base font-semibold leading-snug text-foreground sm:text-lg">
                       <TriangleAlert
@@ -301,7 +301,7 @@ export function CaseStudy({ project, next }: Props) {
                       {shot.portrait || reduceMotion ? (
                         <div
                           className={cn(
-                            "grid place-items-center overflow-hidden rounded-2xl border border-hairline bg-surface-2",
+                            "grid place-items-center overflow-hidden rounded-none border border-hairline bg-surface-2",
                             shot.portrait ? "h-60 p-4" : "h-60",
                           )}
                         >
@@ -358,7 +358,7 @@ export function CaseStudy({ project, next }: Props) {
               <p className="mt-3 text-sm text-muted-foreground sm:text-base">{next.tagline}</p>
             </div>
 
-            <span className="grid size-14 shrink-0 place-items-center rounded-full border border-hairline text-foreground transition-all duration-500 group-hover:border-brand/50 group-hover:bg-brand group-hover:text-brand-foreground">
+            <span className="grid size-14 shrink-0 place-items-center rounded-full border border-hairline text-foreground transition-all duration-500 group-hover:border-brand/50 group-hover:bg-brand group-hover:text-background">
               <ArrowUpRight className="size-5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
           </div>

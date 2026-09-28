@@ -34,8 +34,8 @@ export function SiteFooter() {
             <ShinyText
               text={site.name}
               className="font-display text-[clamp(2.75rem,11vw,9rem)] font-semibold leading-[0.92] tracking-[-0.045em]"
-              color="#2c313b"
-              shineColor="#c8ff4d"
+              color="#2e2e33"
+              shineColor="#ffffff"
               speed={4}
               spread={110}
             />
@@ -129,7 +129,7 @@ export function SiteFooter() {
             <button
               type="button"
               onClick={() => scrollToId("top")}
-              className="cursor-target group flex items-center gap-2 rounded-full border border-hairline px-4 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
+              className="group flex items-center gap-2 rounded-full border border-hairline px-4 py-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
             >
               Back to top
               <ArrowUp className="size-3 transition-transform duration-300 group-hover:-translate-y-0.5" />

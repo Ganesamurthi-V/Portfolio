@@ -16,7 +16,7 @@ export function SparkField({ children }: { children: ReactNode }) {
 
   return (
     <ClickSpark
-      sparkColor="#c8ff4d"
+      sparkColor="#e4e4e7"
       sparkSize={9}
       sparkRadius={20}
       sparkCount={9}

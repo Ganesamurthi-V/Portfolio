@@ -165,7 +165,7 @@ export function SiteNav() {
                       onClick={(event) => handleAnchor(event, item.href)}
                       aria-current={isActive ? "true" : undefined}
                       className={cn(
-                        "cursor-target group relative flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-colors duration-300",
+                        "group relative flex items-center gap-2 rounded-full px-4 py-2 text-sm transition-colors duration-300",
                         isActive
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground",
@@ -196,7 +196,7 @@ export function SiteNav() {
                 href={site.links.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="cursor-target flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:border-brand/40 hover:text-foreground"
+                className="flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:border-brand/40 hover:text-foreground"
               >
                 <GithubIcon className="size-4" />
                 <span className="hidden md:inline">GitHub</span>
@@ -208,7 +208,7 @@ export function SiteNav() {
                 href={site.resume}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="cursor-target group flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-medium text-brand-foreground transition-transform duration-300 hover:scale-[1.03]"
+                className="group flex items-center gap-2 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.03]"
               >
                 <FileText className="size-4" aria-hidden="true" />
                 Resume

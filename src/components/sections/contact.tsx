@@ -14,7 +14,9 @@ import { useIsCompact, usePrefersReducedMotion } from "@/hooks/use-media-query";
 import AnimatedContent from "@/components/reactbits/AnimatedContent";
 import SplitText from "@/components/reactbits/SplitText";
 
-const Aurora = dynamic(() => import("@/components/reactbits/Aurora"), { ssr: false });
+const PixelDither = dynamic(() => import("@/components/visuals/pixel-dither"), {
+  ssr: false,
+});
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
@@ -144,16 +146,16 @@ export function Contact() {
 
   return (
     <div className="relative overflow-hidden">
-      {!isCompact && !reduceMotion && (
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[34rem] opacity-40"
-          aria-hidden="true"
-        >
-          <Aurora colorStops={["#c8ff4d", "#1c2a12", "#c8ff4d"]} amplitude={0.9} blend={0.6} speed={0.6} />
-        </div>
-      )}
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute inset-0 grid-lines opacity-50" />
+        {!isCompact && !reduceMotion && (
+          <div className="absolute inset-x-0 top-0 h-[26rem] opacity-30">
+            <PixelDither cell={6} intensity={1} speed={0.7} followMouse={false} />
+          </div>
+        )}
+      </div>
 
-      <Section id="contact" index="10" eyebrow="Contact" innerClassName="mt-0">
+      <Section id="contact" index="06" eyebrow="Contact" innerClassName="mt-0">
         <div className="shell">
           <div className="rule mb-10" aria-hidden="true" />
 
@@ -183,7 +185,7 @@ export function Contact() {
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="rounded-3xl border border-hairline bg-surface/80 p-6 backdrop-blur-xl sm:p-8"
+                className="rounded-none border border-hairline bg-surface/80 p-6 backdrop-blur-xl sm:p-8"
               >
                 <p className="eyebrow">Send a message</p>
 
@@ -224,7 +226,7 @@ export function Contact() {
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? "contact-message-error" : undefined}
                       className={cn(
-                        "mt-2.5 w-full resize-y rounded-xl border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
+                        "mt-2.5 w-full resize-y rounded-none border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
                         errors.message ? "border-destructive/60" : "border-hairline",
                       )}
                       placeholder="What are you building, and where could I help?"
@@ -253,7 +255,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="cursor-target group mt-8 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-brand-foreground transition-transform duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
                 >
                   {status === "sending" && (
                     <Loader2 className="size-4 animate-spin" aria-hidden="true" />
@@ -323,30 +325,18 @@ export function Contact() {
                   ))}
                 </ul>
 
-                <div className="mt-9 rounded-2xl border border-hairline bg-surface/60 p-6 backdrop-blur">
-                  <p className="eyebrow">Also useful</p>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <a
-                      href={site.resume}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="cursor-target inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
-                    >
-                      View Resume
-                      <ArrowUpRight className="size-3.5" aria-hidden="true" />
-                    </a>
-                    <a
-                      href={site.resume}
-                      download
-                      className="cursor-target inline-flex items-center gap-2 rounded-full border border-hairline px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-brand/40 hover:text-foreground"
-                    >
-                      Download Resume
-                    </a>
-                  </div>
-                  <p className="mt-4 text-[0.6875rem] leading-relaxed text-muted-foreground">
-                    Based in {site.location}. Comfortable working remote across time zones.
-                  </p>
-                </div>
+                <p className="mt-6 text-[0.75rem] leading-relaxed text-muted-foreground">
+                  Based in {site.location}. Comfortable working remote across time zones.{" "}
+                  <a
+                    href={site.resume}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="link-underline text-foreground"
+                  >
+                    Resume
+                  </a>
+                  .
+                </p>
               </div>
             </AnimatedContent>
           </div>
@@ -378,7 +368,7 @@ function Field({ id, label, error, className, ...props }: FieldProps) {
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "mt-2.5 w-full rounded-xl border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
+          "mt-2.5 w-full rounded-none border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
           error ? "border-destructive/60" : "border-hairline",
           className,
         )}

@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="relative flex min-h-svh items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-        <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(200,255,77,0.1),transparent_70%)]" />
+        <div className="absolute inset-x-0 top-0 h-[36rem] bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(255,255,255,0.1),transparent_70%)]" />
         <div className="absolute inset-0 grid-lines radial-fade opacity-45" />
       </div>
 
@@ -24,7 +24,7 @@ export default function NotFound() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-brand px-6 py-3.5 text-sm font-medium text-brand-foreground transition-transform duration-300 hover:scale-[1.03]"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.03]"
           >
             <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
             Back home

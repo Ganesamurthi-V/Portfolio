@@ -30,8 +30,8 @@ export function Architecture() {
           <DotGrid
             dotSize={2}
             gap={34}
-            baseColor="#1b1f27"
-            activeColor="#c8ff4d"
+            baseColor="#26262a"
+            activeColor="#fafafa"
             proximity={130}
             shockRadius={210}
             shockStrength={4}
@@ -65,7 +65,7 @@ export function Architecture() {
                     aria-selected={selected}
                     onClick={() => setActiveSlug(project.slug)}
                     className={cn(
-                      "cursor-target rounded-full border px-4 py-2 text-sm transition-all duration-300",
+                      "rounded-full border px-4 py-2 text-sm transition-all duration-300",
                       selected
                         ? "border-brand/50 bg-brand/10 text-foreground"
                         : "border-hairline text-muted-foreground hover:border-brand/30 hover:text-foreground",

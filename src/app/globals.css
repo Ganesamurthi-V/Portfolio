@@ -20,6 +20,15 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-soft: var(--brand-soft);
 
+  /* Silver ramp */
+  --color-silver-100: var(--silver-100);
+  --color-silver-200: var(--silver-200);
+  --color-silver-300: var(--silver-300);
+  --color-silver-400: var(--silver-400);
+  --color-silver-500: var(--silver-500);
+  --color-silver-600: var(--silver-600);
+  --color-silver-700: var(--silver-700);
+
   /* Surfaces */
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -156,56 +165,69 @@
 .dark {
   color-scheme: dark;
 
-  --brand: #c8ff4d;
-  --brand-foreground: #0a0d04;
-  --brand-soft: color-mix(in oklab, var(--brand) 14%, transparent);
+  /* Monochrome: contrast is the accent. No hue anywhere in the chrome.
+     `brand` is silver so accent marks stay distinct from white body text;
+     primary buttons use `foreground` (pure white) for maximum contrast. */
+  --brand: #c2c2c8;
+  --brand-foreground: #0a0a0a;
+  --brand-soft: rgba(255, 255, 255, 0.09);
 
-  --background: #07080a;
-  --foreground: #eef0f2;
+  /* Silver ramp, used for display type and hairline hierarchy. */
+  --silver-100: #ffffff;
+  --silver-200: #e4e4e7;
+  --silver-300: #c2c2c8;
+  --silver-400: #9a9aa2;
+  --silver-500: #71717a;
+  --silver-600: #4b4b52;
+  --silver-700: #2e2e33;
 
-  --surface: #0d0f13;
-  --surface-2: #12151b;
-  --hairline: rgba(255, 255, 255, 0.08);
+  --background: #0a0a0a;
+  --foreground: #fafafa;
 
-  --card: #0d0f13;
-  --card-foreground: #eef0f2;
-  --popover: #0d0f13;
-  --popover-foreground: #eef0f2;
+  --surface: #101011;
+  --surface-2: #171719;
+  --hairline: rgba(255, 255, 255, 0.11);
 
-  --primary: #c8ff4d;
-  --primary-foreground: #0a0d04;
+  --card: #101011;
+  --card-foreground: #fafafa;
+  --popover: #101011;
+  --popover-foreground: #fafafa;
 
-  --secondary: #16191f;
-  --secondary-foreground: #eef0f2;
+  --primary: #fafafa;
+  --primary-foreground: #0a0a0a;
 
-  --muted: #14171d;
-  --muted-foreground: #8d93a0;
+  --secondary: #1c1c1f;
+  --secondary-foreground: #fafafa;
 
-  --accent: #181c23;
-  --accent-foreground: #eef0f2;
+  --muted: #17171a;
+  --muted-foreground: #8e8e96;
 
-  --destructive: #ff5f56;
+  --accent: #1c1c1f;
+  --accent-foreground: #fafafa;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: rgba(200, 255, 77, 0.45);
+  --destructive: #e5645c;
 
-  --chart-1: #c8ff4d;
-  --chart-2: #7de2d1;
-  --chart-3: #8f8cff;
-  --chart-4: #ffb86b;
-  --chart-5: #5b6070;
+  --border: rgba(255, 255, 255, 0.11);
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: rgba(255, 255, 255, 0.5);
 
-  --radius: 0.875rem;
+  --chart-1: #fafafa;
+  --chart-2: #c2c2c8;
+  --chart-3: #9a9aa2;
+  --chart-4: #71717a;
+  --chart-5: #4b4b52;
 
-  --sidebar: #0d0f13;
-  --sidebar-foreground: #eef0f2;
-  --sidebar-primary: #c8ff4d;
-  --sidebar-primary-foreground: #0a0d04;
-  --sidebar-accent: #181c23;
-  --sidebar-accent-foreground: #eef0f2;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: rgba(200, 255, 77, 0.45);
+  /* Squarer corners suit the blueprint language. */
+  --radius: 0.5rem;
+
+  --sidebar: #101011;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #fafafa;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1c1c1f;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: rgba(255, 255, 255, 0.11);
+  --sidebar-ring: rgba(255, 255, 255, 0.5);
 
   /* Layout rhythm */
   --nav-h: 4.5rem;
@@ -314,9 +336,38 @@
 /* Thin hairline grid backdrop */
 @utility grid-lines {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
   background-size: 72px 72px;
+}
+
+/* 1-bit pixel texture — the static counterpart to the WebGL dither field */
+@utility pixel-grid {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.16) 1px,
+    transparent 1px
+  );
+  background-size: 6px 6px;
+}
+
+/**
+ * Brushed-silver display type.
+ *
+ * Only safe on elements whose text is a direct child. Do not use on GSAP
+ * SplitText output — it replaces the text with child spans, leaving nothing
+ * for `background-clip: text` to clip against.
+ */
+@utility text-silver {
+  background-image: linear-gradient(
+    180deg,
+    var(--silver-100) 0%,
+    var(--silver-200) 42%,
+    var(--silver-400) 78%,
+    var(--silver-300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility radial-fade {
@@ -390,6 +441,68 @@
     transform: translateY(0);
   }
 
+  /* Blueprint frame: hairline box with crosshair ticks at each corner */
+  .blueprint {
+    position: relative;
+    border: 1px solid var(--hairline);
+  }
+  .blueprint::before,
+  .blueprint::after {
+    content: "";
+    position: absolute;
+    inset: -3.5px;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--silver-500), var(--silver-500)),
+      linear-gradient(var(--silver-500), var(--silver-500));
+    background-repeat: no-repeat;
+  }
+  /* top-left + top-right ticks */
+  .blueprint::before {
+    background-position:
+      0 0,
+      100% 0;
+    background-size:
+      7px 1px,
+      7px 1px;
+  }
+  .blueprint::after {
+    background-position:
+      0 100%,
+      100% 100%;
+    background-size:
+      7px 1px,
+      7px 1px;
+  }
+
+  /* Small "+" register mark */
+  .register-mark {
+    position: relative;
+    width: 9px;
+    height: 9px;
+    flex: none;
+  }
+  .register-mark::before,
+  .register-mark::after {
+    content: "";
+    position: absolute;
+    background: var(--silver-500);
+  }
+  .register-mark::before {
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+  .register-mark::after {
+    top: 50%;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transform: translateY(-50%);
+  }
+
   /* Hairline divider that draws itself in */
   .rule {
     height: 1px;
@@ -406,6 +519,13 @@
   /* Split text helpers used by React Bits SplitText */
   .split-parent {
     overflow: visible !important;
+  }
+
+  /* Custom cursor: suppress the native one, but keep the text caret in fields
+     so the contact form still behaves like a form. */
+  html.has-custom-cursor,
+  html.has-custom-cursor *:not(input):not(textarea) {
+    cursor: none !important;
   }
 }
 

@@ -1,96 +1,114 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowUpRight, GraduationCap } from "lucide-react";
+
 import { Section } from "@/components/layout/section";
-import { about, site } from "@/content/site";
+import { about, currentlyBuilding, education, site } from "@/content/site";
 import AnimatedContent from "@/components/reactbits/AnimatedContent";
 import ScrollReveal from "@/components/reactbits/ScrollReveal";
-import CountUp from "@/components/reactbits/CountUp";
-import GlareHover from "@/components/reactbits/GlareHover";
 
-const facts = [
-  { label: "Shipped projects", value: 4, suffix: "" },
-  { label: "Production internship", value: 1, suffix: "" },
-  { label: "Core stack languages", value: 3, suffix: "" },
+const profile = [
+  { term: "Role", detail: site.role },
+  { term: "Based in", detail: site.location },
+  { term: "Focus", detail: "SaaS products and business applications" },
+  { term: "Availability", detail: "Open to 2026 roles and internships" },
 ];
 
 export function About() {
   return (
-    <Section
-      id="about"
-      index="05"
-      eyebrow="About"
-      title={about.heading}
-      lead={about.body}
-    >
-      <div className="shell grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-20">
+    <Section id="about" index="05" eyebrow="About" title={about.heading} lead={about.body}>
+      <div className="shell grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16">
         <div>
           <ScrollReveal
             baseOpacity={0.1}
-            baseRotation={2.5}
+            baseRotation={2}
             blurStrength={4}
             containerClassName="!my-0"
-            textClassName="text-[clamp(1.1rem,0.95rem+0.9vw,1.6rem)] font-normal leading-[1.55] text-foreground/90"
+            textClassName="!text-[clamp(1.05rem,0.95rem+0.7vw,1.45rem)] !font-normal !leading-[1.55] text-foreground/90"
           >
             {about.detail}
           </ScrollReveal>
 
-          <AnimatedContent distance={30} duration={0.8} threshold={0.2} className="mt-12">
-            <dl className="grid grid-cols-3 gap-6 border-t border-hairline pt-8">
-              {facts.map((fact) => (
-                <div key={fact.label}>
-                  <dd className="font-display text-[clamp(2rem,1.4rem+1.6vw,3rem)] font-semibold leading-none text-brand">
-                    <CountUp to={fact.value} duration={1.4} />
-                    {fact.suffix}
-                  </dd>
-                  <dt className="mt-2 font-mono text-[0.625rem] uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
-                    {fact.label}
-                  </dt>
-                </div>
-              ))}
-            </dl>
+          {/* Currently building — folded in rather than given its own section */}
+          <AnimatedContent distance={26} duration={0.8} threshold={0.15} className="mt-10">
+            <div className="rounded-none border border-hairline bg-surface/70 p-5 backdrop-blur sm:p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="relative grid size-2.5 place-items-center">
+                  <span className="absolute size-2.5 rounded-full bg-brand/50 animate-pulse-ring" />
+                  <span className="size-1.5 rounded-full bg-brand" />
+                </span>
+                <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-brand">
+                  Currently building
+                </span>
+                <span className="font-display text-base font-semibold text-foreground">
+                  {currentlyBuilding.project}
+                </span>
+                <Link
+                  href="/work/gymflow"
+                  className="ml-auto inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <span className="link-underline">Case study</span>
+                  <ArrowUpRight className="size-3" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted-foreground">
+                {currentlyBuilding.summary}
+              </p>
+
+              <ul className="mt-4 flex flex-wrap gap-1.5">
+                {["Reports module", "WhatsApp sweeps", "Member rewards"].map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-md border border-hairline bg-surface-2/60 px-2.5 py-1 font-mono text-[0.625rem] text-foreground/75"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </AnimatedContent>
         </div>
 
-        <AnimatedContent distance={40} duration={0.9} delay={0.1} threshold={0.15}>
-          <GlareHover
-            width="100%"
-            height="100%"
-            background="color-mix(in oklab, var(--surface) 82%, transparent)"
-            borderColor="var(--hairline)"
-            borderRadius="24px"
-            glareColor="#c8ff4d"
-            glareOpacity={0.14}
-            glareAngle={-38}
-            glareSize={220}
-            transitionDuration={800}
-            className="!block !place-items-stretch"
-          >
-            <div className="p-7 sm:p-9">
-              <p className="eyebrow">Profile</p>
+        <AnimatedContent distance={32} duration={0.85} delay={0.08} threshold={0.15}>
+          <div className="rounded-none border border-hairline bg-surface/70 p-6 backdrop-blur sm:p-7">
+            <p className="eyebrow">Profile</p>
 
-              <dl className="mt-6 space-y-5">
-                {[
-                  { term: "Role", detail: site.role },
-                  { term: "Based in", detail: site.location },
-                  { term: "Focus", detail: "SaaS products and business applications" },
-                  { term: "Availability", detail: "Open to 2026 roles and internships" },
-                ].map((row) => (
-                  <div key={row.term} className="border-b border-hairline pb-5 last:border-0 last:pb-0">
-                    <dt className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground">
-                      {row.term}
-                    </dt>
-                    <dd className="mt-1.5 text-sm text-foreground sm:text-base">{row.detail}</dd>
-                  </div>
-                ))}
-              </dl>
+            <dl className="mt-5 space-y-4">
+              {profile.map((row) => (
+                <div
+                  key={row.term}
+                  className="border-b border-hairline pb-4 last:border-0 last:pb-0"
+                >
+                  <dt className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    {row.term}
+                  </dt>
+                  <dd className="mt-1 text-sm text-foreground">{row.detail}</dd>
+                </div>
+              ))}
+            </dl>
 
-              <p className="mt-7 text-[0.8125rem] leading-relaxed text-muted-foreground">
-                The portfolio is deliberately project-led. If you want the detail behind any
-                of it, the case studies go down to schema decisions and the things that went
-                wrong.
-              </p>
+            {/* Education — a supporting detail, not its own section */}
+            <div className="mt-7 border-t border-hairline pt-6">
+              <div className="flex items-start gap-3">
+                <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-hairline bg-surface-2 text-brand">
+                  <GraduationCap className="size-4" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-sm font-medium leading-snug text-foreground">
+                    {education.degree}
+                  </p>
+                  <p className="mt-1 text-[0.8125rem] text-muted-foreground">
+                    {education.institution}
+                  </p>
+                  <p className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-brand">
+                    {education.expected}
+                  </p>
+                </div>
+              </div>
             </div>
-          </GlareHover>
+          </div>
         </AnimatedContent>
       </div>
     </Section>

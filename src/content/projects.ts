@@ -197,7 +197,7 @@ export const projects: Project[] = [
       },
       architecture: {
         title: "Architecture",
-        body: "Two clients and a kiosk talk to one Next.js application. Middleware resolves the session and the tenant before a request reaches a route handler, authorisation is applied in a single policy layer, and Postgres row level security acts as the backstop. Supabase supplies auth, Postgres and storage; WhatsApp and the payment provider sit behind the service boundary.",
+        body: "Two clients and a kiosk talk to one Next.js application. Middleware resolves the session and the tenant before a request reaches a route handler, authorisation is applied in a single policy layer, and Postgres row level security acts as the backstop. Supabase supplies auth, Postgres and storage; WhatsApp sits behind the service boundary.",
         nodes: [
           { id: "owner", label: "Owner console", sublabel: "Next.js App Router", kind: "client" },
           { id: "member", label: "Member PWA", sublabel: "Status, workouts, rewards", kind: "client" },

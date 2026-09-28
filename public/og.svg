@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <radialGradient id="glow" cx="0.5" cy="0" r="0.85">
-      <stop offset="0" stop-color="#c8ff4d" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#c8ff4d" stop-opacity="0"/>
+      <stop offset="0" stop-color="#e4e4e7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#e4e4e7" stop-opacity="0"/>
     </radialGradient>
     <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
       <path d="M48 0H0v48" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
@@ -19,14 +19,14 @@
   <rect width="1200" height="430" fill="url(#glow)"/>
 
   <!-- badge -->
-  <rect x="72" y="66" width="46" height="46" rx="12" fill="#c8ff4d"/>
-  <text class="h" x="95" y="97" text-anchor="middle" font-size="20" fill="#0a0d04">GV</text>
+  <rect x="72" y="66" width="46" height="46" rx="12" fill="#e4e4e7"/>
+  <text class="h" x="95" y="97" text-anchor="middle" font-size="20" fill="#0a0a0a">GV</text>
   <text class="m" x="134" y="86" font-size="14" letter-spacing="3" fill="#8d93a0">GANESAMURTHI V</text>
   <text class="m" x="134" y="106" font-size="12" letter-spacing="2" fill="#5f6674">PORTFOLIO · 2026</text>
 
   <!-- headline -->
   <text class="h" x="72" y="272" font-size="92" letter-spacing="-4" fill="#eef0f2">Full-Stack</text>
-  <text class="h" x="72" y="366" font-size="92" letter-spacing="-4" fill="#c8ff4d">Developer</text>
+  <text class="h" x="72" y="366" font-size="92" letter-spacing="-4" fill="#e4e4e7">Developer</text>
 
   <text class="b" x="72" y="424" font-size="23" fill="#8d93a0">Building modern web applications, SaaS platforms,</text>
   <text class="b" x="72" y="456" font-size="23" fill="#8d93a0">and scalable backend systems.</text>
@@ -37,20 +37,20 @@
   <!-- focus row -->
   <g class="m" font-size="14" letter-spacing="2" fill="#5f6674">
     <text x="72" y="552">NEXT.JS</text>
-    <text x="180" y="552" fill="#c8ff4d">·</text>
+    <text x="180" y="552" fill="#e4e4e7">·</text>
     <text x="202" y="552">TYPESCRIPT</text>
-    <text x="344" y="552" fill="#c8ff4d">·</text>
+    <text x="344" y="552" fill="#e4e4e7">·</text>
     <text x="366" y="552">POSTGRESQL</text>
-    <text x="516" y="552" fill="#c8ff4d">·</text>
+    <text x="516" y="552" fill="#e4e4e7">·</text>
     <text x="538" y="552">SUPABASE</text>
-    <text x="662" y="552" fill="#c8ff4d">·</text>
+    <text x="662" y="552" fill="#e4e4e7">·</text>
     <text x="684" y="552">FLASK</text>
-    <text x="756" y="552" fill="#c8ff4d">·</text>
+    <text x="756" y="552" fill="#e4e4e7">·</text>
     <text x="778" y="552">DOCKER</text>
   </g>
 
   <!-- live pill -->
-  <rect x="908" y="524" width="220" height="40" rx="20" fill="#c8ff4d" fill-opacity="0.12"/>
-  <circle cx="936" cy="544" r="5" fill="#c8ff4d"/>
-  <text class="m" x="954" y="549" font-size="13" letter-spacing="1.6" fill="#c8ff4d">GYMFLOW IS LIVE</text>
+  <rect x="908" y="524" width="220" height="40" rx="20" fill="#e4e4e7" fill-opacity="0.12"/>
+  <circle cx="936" cy="544" r="5" fill="#e4e4e7"/>
+  <text class="m" x="954" y="549" font-size="13" letter-spacing="1.6" fill="#e4e4e7">GYMFLOW IS LIVE</text>
 </svg>

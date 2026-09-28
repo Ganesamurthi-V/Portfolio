@@ -19,7 +19,7 @@ export function WorkIndex() {
   return (
     <div className="pt-32 pb-24 sm:pt-40">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem]" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(200,255,77,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(255,255,255,0.1),transparent_70%)]" />
         <div className="absolute inset-0 grid-lines radial-fade opacity-45" />
       </div>
 
@@ -68,8 +68,8 @@ export function WorkIndex() {
             speed={28}
             textColor="#eef0f2"
             bgColor="#07080a"
-            marqueeBgColor="#c8ff4d"
-            marqueeTextColor="#0a0d04"
+            marqueeBgColor="#e4e4e7"
+            marqueeTextColor="#0a0a0a"
             borderColor="rgba(255,255,255,0.08)"
           />
         </div>
@@ -91,7 +91,7 @@ export function WorkIndex() {
               <li className="h-full">
                 <Link
                   href={`/work/${project.slug}`}
-                  className="cursor-target group flex h-full flex-col rounded-3xl border border-hairline bg-surface/70 p-6 backdrop-blur transition-colors duration-300 hover:border-brand/35 sm:p-7"
+                  className="group flex h-full flex-col rounded-none border border-hairline bg-surface/70 p-6 backdrop-blur transition-colors duration-300 hover:border-brand/35 sm:p-7"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <span className="font-mono text-xs tracking-[0.2em] text-brand">

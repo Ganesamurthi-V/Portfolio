@@ -21,12 +21,13 @@ const TIERS: { label: string; kinds: Kind[] }[] = [
   { label: "Data & external", kinds: ["data", "external"] },
 ];
 
+/** Tiers are distinguished by lightness, not hue — the palette is monochrome. */
 const KIND_META: Record<Kind, { Icon: typeof Boxes; tone: string }> = {
-  client: { Icon: MonitorSmartphone, tone: "text-sky-300/80" },
-  edge: { Icon: ShieldCheck, tone: "text-brand" },
-  service: { Icon: Boxes, tone: "text-violet-300/80" },
-  data: { Icon: Database, tone: "text-emerald-300/80" },
-  external: { Icon: Cloud, tone: "text-orange-300/80" },
+  client: { Icon: MonitorSmartphone, tone: "text-silver-100" },
+  edge: { Icon: ShieldCheck, tone: "text-silver-200" },
+  service: { Icon: Boxes, tone: "text-silver-300" },
+  data: { Icon: Database, tone: "text-silver-400" },
+  external: { Icon: Cloud, tone: "text-silver-500" },
 };
 
 interface Geometry {
@@ -186,7 +187,7 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
   return (
     <div
       className={cn(
-        "overflow-x-auto overflow-y-hidden rounded-3xl border border-hairline bg-surface/60 p-5 backdrop-blur sm:p-8",
+        "overflow-x-auto overflow-y-hidden rounded-none border border-hairline bg-surface/60 p-5 backdrop-blur sm:p-8",
         className,
       )}
       data-lenis-prevent
@@ -263,7 +264,7 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
         )}
 
         {/* Tiers */}
-        <div className="relative z-10 flex flex-col gap-14">
+        <div className="relative z-10 flex flex-col gap-11">
           {tiers.map((tier) => (
             <div key={tier.label} className="flex items-start gap-5">
               <span className="w-24 shrink-0 pt-4 font-mono text-[0.5625rem] uppercase leading-relaxed tracking-[0.18em] text-muted-foreground">
@@ -290,9 +291,9 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
                       onBlur={() => setActiveNode(null)}
                       aria-pressed={isActive}
                       className={cn(
-                        "group min-w-[9.5rem] max-w-[13rem] flex-1 rounded-2xl border bg-surface-2/90 px-4 py-3.5 text-left transition-all duration-300",
+                        "group min-w-[9.5rem] max-w-[13rem] flex-1 rounded-none border bg-surface-2/90 px-4 py-3.5 text-left transition-all duration-300",
                         isActive
-                          ? "border-brand/55 shadow-[0_0_0_1px_rgba(200,255,77,0.18),0_18px_40px_-24px_rgba(200,255,77,0.4)]"
+                          ? "border-brand/55 shadow-[0_0_0_1px_rgba(255,255,255,0.18),0_18px_40px_-24px_rgba(255,255,255,0.4)]"
                           : "border-hairline",
                         dimmed ? "opacity-35" : "opacity-100",
                       )}

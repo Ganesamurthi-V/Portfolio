@@ -1,22 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import { ArrowUpRight, Check, Copy, Loader2, Mail, Phone } from "lucide-react";
-
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { toast } from "sonner";
 
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Section } from "@/components/layout/section";
 import { contact, site } from "@/content/site";
-import { useIsCompact, usePrefersReducedMotion } from "@/hooks/use-media-query";
-import AnimatedContent from "@/components/reactbits/AnimatedContent";
-import SplitText from "@/components/reactbits/SplitText";
-
-const PixelDither = dynamic(() => import("@/components/visuals/pixel-dither"), {
-  ssr: false,
-});
+import { Reveal, RevealText } from "@/components/ui/reveal";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
@@ -40,20 +32,17 @@ const channels = [
 ];
 
 export function Contact() {
-  const isCompact = useIsCompact();
-  const reduceMotion = usePrefersReducedMotion();
-
   const [values, setValues] = useState({ name: "", email: "", message: "", company: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [copied, setCopied] = useState<string | null>(null);
 
-  const update = (field: keyof typeof values) => (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setValues((prev) => ({ ...prev, [field]: event.target.value }));
-    setErrors((prev) => ({ ...prev, [field]: undefined }));
-  };
+  const update =
+    (field: keyof typeof values) =>
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setValues((prev) => ({ ...prev, [field]: event.target.value }));
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    };
 
   function validate() {
     const next: Errors = {};
@@ -88,18 +77,12 @@ export function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      const data = (await response.json()) as {
-        ok: boolean;
-        reason?: string;
-        errors?: Errors;
-      };
+      const data = (await response.json()) as { ok: boolean; reason?: string; errors?: Errors };
 
       if (data.ok) {
         setStatus("sent");
         setValues({ name: "", email: "", message: "", company: "" });
-        toast.success("Message sent", {
-          description: "Thanks — I'll get back to you soon.",
-        });
+        toast.success("Message sent", { description: "Thanks — I'll get back to you soon." });
         return;
       }
 
@@ -117,8 +100,6 @@ export function Contact() {
         return;
       }
 
-      // No mail provider configured, or delivery failed — hand off to the
-      // visitor's own mail client so the message is never lost.
       setStatus("idle");
       toast.info("Opening your mail app", {
         description: `Your message is pre-filled for ${site.email}.`,
@@ -148,44 +129,34 @@ export function Contact() {
     <div className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute inset-0 grid-lines opacity-50" />
-        {!isCompact && !reduceMotion && (
-          <div className="absolute inset-x-0 top-0 h-[26rem] opacity-30">
-            <PixelDither cell={6} intensity={1} speed={0.7} followMouse={false} />
-          </div>
-        )}
+        <div className="pixel-field absolute inset-x-0 top-0 h-[22rem] opacity-30" />
       </div>
 
       <Section id="contact" index="06" eyebrow="Contact" innerClassName="mt-0">
         <div className="shell">
-          <div className="rule mb-10" aria-hidden="true" />
+          <div className="rule mb-8" aria-hidden="true" />
 
-          <SplitText
-            tag="h2"
-            text={contact.heading}
-            textAlign="left"
-            className="font-display block text-[clamp(2.5rem,1.2rem+6vw,6rem)] font-semibold leading-[0.95] tracking-[-0.045em]"
-            splitType="chars"
-            delay={26}
-            duration={1}
-            ease="power4.out"
-            from={{ opacity: 0, yPercent: 100 }}
-            to={{ opacity: 1, yPercent: 0 }}
-            threshold={0.2}
-          />
+          <h2>
+            <RevealText
+              text={contact.heading}
+              stagger={20}
+              className="font-display text-[clamp(2.5rem,1.2rem+6vw,6rem)] font-semibold leading-[0.95] tracking-[-0.045em]"
+            />
+          </h2>
 
-          <AnimatedContent distance={26} duration={0.8} delay={0.1} threshold={0.2}>
+          <Reveal delay={80}>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {contact.body}
             </p>
-          </AnimatedContent>
+          </Reveal>
 
-          <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
-            {/* ------------------------------ form ------------------------------ */}
-            <AnimatedContent distance={32} duration={0.9} threshold={0.12}>
+          <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-16">
+            {/* form */}
+            <Reveal>
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="rounded-none border border-hairline bg-surface/80 p-6 backdrop-blur-xl sm:p-8"
+                className="border border-hairline bg-surface p-6 sm:p-8"
               >
                 <p className="eyebrow">Send a message</p>
 
@@ -226,7 +197,7 @@ export function Contact() {
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? "contact-message-error" : undefined}
                       className={cn(
-                        "mt-2.5 w-full resize-y rounded-none border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
+                        "mt-2.5 w-full resize-y border bg-surface-2 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
                         errors.message ? "border-destructive/60" : "border-hairline",
                       )}
                       placeholder="What are you building, and where could I help?"
@@ -255,19 +226,13 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="group mt-8 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform duration-300 hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-2.5 bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
                 >
-                  {status === "sending" && (
-                    <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-                  )}
+                  {status === "sending" && <Loader2 className="size-4 animate-spin" aria-hidden="true" />}
                   {status === "sent" && <Check className="size-4" aria-hidden="true" />}
-                  {status === "sending"
-                    ? "Sending"
-                    : status === "sent"
-                      ? "Message sent"
-                      : "Send Message"}
+                  {status === "sending" ? "Sending" : status === "sent" ? "Message sent" : "Send Message"}
                   {status === "idle" && (
-                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   )}
                 </button>
 
@@ -279,17 +244,17 @@ export function Contact() {
                   .
                 </p>
               </form>
-            </AnimatedContent>
+            </Reveal>
 
-            {/* ---------------------------- channels ---------------------------- */}
-            <AnimatedContent distance={32} duration={0.9} delay={0.08} threshold={0.12}>
+            {/* channels */}
+            <Reveal delay={80}>
               <div>
                 <p className="eyebrow">Direct channels</p>
 
                 <ul className="mt-7 divide-y divide-[color:var(--hairline)] border-y border-hairline">
                   {channels.map(({ label, value, href, Icon, external, copy }) => (
-                    <li key={label} className="group flex items-center gap-4 py-5">
-                      <span className="grid size-9 shrink-0 place-items-center rounded-full border border-hairline bg-surface-2 text-brand">
+                    <li key={label} className="flex items-center gap-4 py-5">
+                      <span className="grid size-9 shrink-0 place-items-center border border-hairline bg-surface-2 text-silver-300">
                         <Icon className="size-4" aria-hidden="true" />
                       </span>
 
@@ -312,7 +277,7 @@ export function Contact() {
                           type="button"
                           onClick={() => copyValue(copy)}
                           aria-label={`Copy ${label.toLowerCase()}`}
-                          className="grid size-8 shrink-0 place-items-center rounded-full border border-hairline text-muted-foreground transition-colors hover:border-brand/40 hover:text-brand"
+                          className="grid size-8 shrink-0 place-items-center border border-hairline text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
                         >
                           {copied === copy ? (
                             <Check className="size-3.5" aria-hidden="true" />
@@ -338,7 +303,7 @@ export function Contact() {
                   .
                 </p>
               </div>
-            </AnimatedContent>
+            </Reveal>
           </div>
         </div>
       </Section>
@@ -368,7 +333,7 @@ function Field({ id, label, error, className, ...props }: FieldProps) {
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "mt-2.5 w-full rounded-none border bg-surface-2/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-brand/50",
+          "mt-2.5 w-full border bg-surface-2 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
           error ? "border-destructive/60" : "border-hairline",
           className,
         )}

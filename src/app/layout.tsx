@@ -6,9 +6,7 @@ import "./globals.css";
 import { site } from "@/content/site";
 import { SiteNav } from "@/components/layout/site-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
-import { CursorLayer } from "@/components/layout/cursor-layer";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
@@ -21,22 +19,21 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500"],
 });
 
 const title = `${site.name} — ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: title,
-    template: `%s — ${site.name}`,
-  },
+  title: { default: title, template: `%s — ${site.name}` },
   description: site.statement,
   keywords: [
     site.name,
@@ -60,14 +57,7 @@ export const metadata: Metadata = {
     title,
     description: site.statement,
     locale: "en_IN",
-    images: [
-      {
-        url: "/og.svg",
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
+    images: [{ url: "/og.svg", width: 1200, height: 630, alt: title }],
   },
   twitter: {
     card: "summary_large_image",
@@ -87,7 +77,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07080a",
+  themeColor: "#0a0a0a",
   colorScheme: "dark",
 };
 
@@ -120,7 +110,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
-      suppressHydrationWarning
     >
       <body className="flex min-h-svh flex-col bg-background text-foreground antialiased">
         <script
@@ -129,13 +118,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
 
-        <SmoothScroll />
         <ScrollProgress />
-        <CursorLayer />
 
         <a
           href="#work"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
         >
           Skip to content
         </a>
@@ -147,8 +134,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteFooter />
 
         <Toaster position="bottom-right" />
-
-        <div className="noise-overlay" aria-hidden="true" />
       </body>
     </html>
   );

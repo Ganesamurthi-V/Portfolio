@@ -6,10 +6,10 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   {
-    // The animated React Bits wrappers (ScrollExpand, TiltedCard,
-    // PixelTransition) take a raw `src` string and render their own <img>, so
-    // project imagery has to stay on plain <img> to flow through them. Sizes
-    // are set explicitly at the call sites to avoid layout shift.
+    // Project imagery is a mix of local PNG screenshots and hand-authored SVG
+    // mockups. next/image would need `dangerouslyAllowSVG` to serve the latter,
+    // which is not a trade worth making for static local assets. Intrinsic
+    // width/height are set at every call site so there is no layout shift.
     files: ["src/components/**/*.tsx"],
     rules: { "@next/next/no-img-element": "off" },
   },
@@ -20,10 +20,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Vendored React Bits components (installed via the shadcn registry).
-    // Upstream source, kept unmodified so it stays updatable — linting it
-    // against this project's rules would mean forking 30+ files.
-    "src/components/reactbits/**",
   ]),
 ]);
 

@@ -1,9 +1,7 @@
-"use client";
-
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
-import AnimatedContent from "@/components/reactbits/AnimatedContent";
+import { Reveal } from "@/components/ui/reveal";
 
 interface Props {
   index: string;
@@ -15,29 +13,20 @@ interface Props {
 }
 
 /** One numbered block of a case study: heading, prose, optional bullet list. */
-export function CaseStudyBlock({
-  index,
-  title,
-  body,
-  bullets,
-  children,
-  className,
-}: Props) {
+export function CaseStudyBlock({ index, title, body, bullets, children, className }: Props) {
   return (
-    <section className={cn("scroll-mt-28 border-t border-hairline py-14 sm:py-20", className)}>
+    <section className={cn("scroll-mt-24 border-t border-hairline py-12 sm:py-16", className)}>
       <div className="grid gap-8 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16">
-        <AnimatedContent distance={20} duration={0.7} threshold={0.2}>
-          <div className="flex items-center gap-3 lg:sticky lg:top-28 lg:flex-col lg:items-start lg:gap-2">
-            <span className="font-mono text-[0.6875rem] tracking-[0.2em] text-brand">
+        <Reveal>
+          <div className="flex items-center gap-3 lg:sticky lg:top-24 lg:flex-col lg:items-start lg:gap-2">
+            <span className="font-mono text-[0.6875rem] tracking-[0.2em] text-silver-400">
               {index}
             </span>
-            <h2 className="font-display text-lg font-semibold tracking-tight lg:text-xl">
-              {title}
-            </h2>
+            <h2 className="font-display text-lg font-semibold tracking-tight lg:text-xl">{title}</h2>
           </div>
-        </AnimatedContent>
+        </Reveal>
 
-        <AnimatedContent distance={28} duration={0.85} delay={0.05} threshold={0.15}>
+        <Reveal delay={60}>
           <div className="max-w-3xl">
             {body && (
               <p className="text-[0.9375rem] leading-[1.75] text-muted-foreground sm:text-base">
@@ -50,7 +39,7 @@ export function CaseStudyBlock({
                 {bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3">
                     <span
-                      className="mt-[0.5rem] size-1.5 shrink-0 rounded-full bg-brand"
+                      className="mt-[0.5rem] size-1.5 shrink-0 rounded-full bg-silver-400"
                       aria-hidden="true"
                     />
                     <span className="text-[0.9375rem] leading-[1.7] text-foreground/85">
@@ -63,7 +52,7 @@ export function CaseStudyBlock({
 
             {children && <div className={cn(body || bullets ? "mt-10" : "")}>{children}</div>}
           </div>
-        </AnimatedContent>
+        </Reveal>
       </div>
     </section>
   );

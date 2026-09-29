@@ -187,10 +187,9 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
   return (
     <div
       className={cn(
-        "overflow-x-auto overflow-y-hidden rounded-none border border-hairline bg-surface/60 p-5 backdrop-blur sm:p-8",
+        "overflow-x-auto overflow-y-hidden border border-hairline bg-surface/60 p-5 sm:p-8",
         className,
       )}
-      data-lenis-prevent
     >
       <div ref={containerRef} className="relative min-w-[40rem]">
         {/* Connectors */}
@@ -233,16 +232,16 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
                     strokeWidth={active ? 1.6 : 1}
                     markerEnd="url(#arch-arrow)"
                   />
+                  {/* Static dash overlay. This used to run a continuous
+                      stroke-dashoffset animation on every path, repainting the
+                      whole SVG each frame for a decorative effect. */}
                   <path
                     d={path.d}
                     fill="none"
                     stroke="currentColor"
                     strokeWidth={active ? 2.4 : 1.6}
                     strokeDasharray="4 24"
-                    className={cn(
-                      "animate-dash-flow",
-                      active ? "opacity-100" : "opacity-45",
-                    )}
+                    className={active ? "opacity-100" : "opacity-40"}
                   />
                   {path.label && (
                     <text
@@ -292,9 +291,7 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
                       aria-pressed={isActive}
                       className={cn(
                         "group min-w-[9.5rem] max-w-[13rem] flex-1 rounded-none border bg-surface-2/90 px-4 py-3.5 text-left transition-all duration-300",
-                        isActive
-                          ? "border-brand/55 shadow-[0_0_0_1px_rgba(255,255,255,0.18),0_18px_40px_-24px_rgba(255,255,255,0.4)]"
-                          : "border-hairline",
+                        isActive ? "border-foreground/45 bg-surface-2" : "border-hairline",
                         dimmed ? "opacity-35" : "opacity-100",
                       )}
                     >

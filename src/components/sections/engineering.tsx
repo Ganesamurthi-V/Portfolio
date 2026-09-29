@@ -1,33 +1,14 @@
-"use client";
-
 import { Section } from "@/components/layout/section";
 import { stackGroups, techMarquee } from "@/content/engineering";
-import { useIsCompact, usePrefersReducedMotion } from "@/hooks/use-media-query";
-import MagicBento from "@/components/reactbits/MagicBento";
-import LogoLoop from "@/components/reactbits/LogoLoop";
+import { Reveal } from "@/components/ui/reveal";
+import { Marquee } from "@/components/ui/marquee";
 
-const bentoCards = stackGroups.map((group) => ({
-  color: "#0d0f13",
-  label: group.label,
-  title: group.title,
-  description: group.blurb,
-}));
-
-const logos = [...techMarquee.primary, ...techMarquee.secondary].map((label) => ({
-  node: (
-    <span className="whitespace-nowrap font-mono text-sm uppercase tracking-[0.14em] text-muted-foreground transition-colors duration-300 hover:text-brand">
-      {label}
-    </span>
-  ),
-  title: label,
-  ariaLabel: label,
-}));
-
+/**
+ * Plain CSS grid. This replaced MagicBento, which ran a GSAP particle system
+ * (ten animated nodes per card), a pointer-tracked spotlight, per-card tilt and
+ * magnetism — all of it writing transforms on every mouse move.
+ */
 export function Engineering() {
-  const isCompact = useIsCompact();
-  const reduceMotion = usePrefersReducedMotion();
-  const rich = !isCompact && !reduceMotion;
-
   return (
     <Section
       id="engineering"
@@ -36,40 +17,43 @@ export function Engineering() {
       title="What I build"
       lead="Six layers I work across. The list reflects what I have shipped rather than everything I have briefly touched."
     >
-      {/* MagicBento caps its grid at 54rem and forces a 4:3 card ratio — widen
-          the grid and let the cards size to their content so the section does
-          not eat a full extra viewport. */}
-      <div className="shell flex justify-center [&_.bento-section]:w-full [&_.bento-section]:max-w-none [&_.card]:!aspect-auto [&_.card]:!min-h-[9.5rem] [&_.card]:!gap-4 [&_.card]:!rounded-none">
-        <MagicBento
-          cards={bentoCards}
-          textAutoHide={false}
-          enableStars={rich}
-          enableSpotlight={rich}
-          enableBorderGlow
-          enableTilt={rich}
-          enableMagnetism={rich}
-          clickEffect={!reduceMotion}
-          disableAnimations={reduceMotion}
-          spotlightRadius={320}
-          particleCount={10}
-          glowColor="255, 255, 255"
-        />
+      <div className="shell">
+        <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+          {stackGroups.map((group, index) => (
+            <Reveal key={group.label} delay={index * 60} className="bg-surface">
+              <div className="group h-full p-6 transition-colors duration-300 hover:bg-surface-2 sm:p-7">
+                <div className="flex items-baseline justify-between gap-3">
+                  <p className="eyebrow">{group.label}</p>
+                  <span className="font-mono text-[0.625rem] text-silver-500">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-display text-lg font-semibold tracking-tight">
+                  {group.title}
+                </h3>
+                <p className="mt-2 text-[0.8125rem] leading-relaxed text-muted-foreground">
+                  {group.description}
+                </p>
+
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="border border-hairline bg-surface-2 px-2.5 py-1 font-mono text-[0.6875rem] text-foreground/75"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
 
-      {/* Technology marquee */}
-      <div className="relative mt-12 h-14 border-y border-hairline">
-        <LogoLoop
-          logos={logos}
-          speed={40}
-          direction="left"
-          gap={56}
-          logoHeight={20}
-          fadeOut
-          fadeOutColor="#07080a"
-          pauseOnHover
-          scaleOnHover
-          ariaLabel="Technologies"
-        />
+      <div className="mt-12 border-y border-hairline py-5">
+        <Marquee items={[...techMarquee.primary, ...techMarquee.secondary]} />
       </div>
     </Section>
   );

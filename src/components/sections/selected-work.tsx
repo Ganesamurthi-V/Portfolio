@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -20,10 +18,10 @@ export function SelectedWork() {
       action={
         <Link
           href={`/work/${flagship.slug}`}
-          className="group inline-flex items-center gap-2.5 rounded-full border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors duration-300 hover:border-brand/40 hover:text-foreground"
+          className="group inline-flex items-center gap-2.5 border border-hairline px-5 py-3 text-sm text-muted-foreground transition-colors duration-200 hover:border-foreground/40 hover:text-foreground"
         >
           Start with {flagship.name}
-          <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
       }
     >

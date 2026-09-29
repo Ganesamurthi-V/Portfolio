@@ -8,6 +8,7 @@ import { SiteNav } from "@/components/layout/site-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { Toaster } from "@/components/ui/sonner";
+import { LenisProvider } from "@/components/providers/lenis-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -112,28 +113,30 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="flex min-h-svh flex-col bg-background text-foreground antialiased">
-        <script
-          type="application/ld+json"
-          // Structured data is a static, trusted object defined above.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
+        <LenisProvider>
+          <script
+            type="application/ld+json"
+            // Structured data is a static, trusted object defined above.
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          />
 
-        <ScrollProgress />
+          <ScrollProgress />
 
-        <a
-          href="#work"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
-        >
-          Skip to content
-        </a>
+          <a
+            href="#work"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
+          >
+            Skip to content
+          </a>
 
-        <SiteNav />
+          <SiteNav />
 
-        <main className="relative flex-1">{children}</main>
+          <main className="relative flex-1">{children}</main>
 
-        <SiteFooter />
+          <SiteFooter />
 
-        <Toaster position="bottom-right" />
+          <Toaster position="bottom-right" />
+        </LenisProvider>
       </body>
     </html>
   );

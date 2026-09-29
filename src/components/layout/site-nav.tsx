@@ -2,13 +2,35 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { ArrowUpRight, FileText, X } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { nav, site } from "@/content/site";
 import { idFromHref, scrollToId } from "@/lib/scroll";
+import { useMediaQuery } from "@/hooks/use-media-query";
+
+/**
+ * Floating navbar metrics, in px.
+ * Following GymFlow's approach with precise constants for smooth animations.
+ */
+const NAV_TOP = 14;
+const NAV_H = 72;
+const NAV_H_SCROLLED = 60;
+const NAV_MAX_W = 1200;
+const NAV_MAX_W_SCROLLED = 1000;
+
+/**
+ * Scroll distance before the navbar collapses.
+ * Using GymFlow's approach - past the hero area for natural feel.
+ */
+const COLLAPSE_AT = 80;
+
+/**
+ * Desktop breakpoint for mobile menu.
+ */
+const DESKTOP_AT = 1024;
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -18,25 +40,89 @@ export function SiteNav() {
   const [active, setActive] = useState("top");
   const [open, setOpen] = useState(false);
 
-  /* Condense the bar once the hero is out of the way. */
-  useEffect(() => {
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      setScrolled(window.scrollY > 24);
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
+  // Refs for the moving highlight animation
+  const highlightRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-    };
+  // Derived mobile state (like GymFlow)
+  const isDesktop = useMediaQuery(`(min-width: ${DESKTOP_AT}px)`);
+  const sheetOpen = open && !isDesktop;
+
+  // Function to move highlight on hover
+  const moveHighlight = useCallback((element: HTMLElement) => {
+    if (!highlightRef.current || !element) return;
+    
+    const rect = element.getBoundingClientRect();
+    const nav = element.closest('nav');
+    if (!nav) return;
+    const navRect = nav.getBoundingClientRect();
+    
+    const left = rect.left - navRect.left;
+    const top = rect.top - navRect.top;
+    
+    highlightRef.current.style.opacity = '1';
+    highlightRef.current.style.width = `${rect.width}px`;
+    highlightRef.current.style.height = `${rect.height}px`;
+    highlightRef.current.style.transform = `translate(${left}px, ${top}px)`;
+  }, []);
+  // Function to reset highlight
+  const resetHighlight = useCallback(() => {
+    if (!highlightRef.current) return;
+    highlightRef.current.style.opacity = '0';
   }, []);
 
+  // Function to update active indicator position
+  const updateActiveIndicator = useCallback(() => {
+    if (!activeRef.current || !isHome) return;
+    
+    const activeLink = document.querySelector(`a[href="/#${active}"]`) as HTMLAnchorElement;
+    if (!activeLink) return;
+    
+    const rect = activeLink.getBoundingClientRect();
+    const nav = activeLink.closest('nav');
+    if (!nav) return;
+    const navRect = nav.getBoundingClientRect();
+    
+    const left = rect.left - navRect.left;
+    const top = rect.top - navRect.top;
+    
+    activeRef.current.style.width = `${rect.width}px`;
+    activeRef.current.style.height = `${rect.height}px`;
+    activeRef.current.style.transform = `translate(${left}px, ${top}px)`;
+  }, [active, isHome]);
+
+  // Update active indicator when active section changes
+  useEffect(() => {
+    updateActiveIndicator();
+  }, [updateActiveIndicator]);
+
+  // Update positions on resize
+  useEffect(() => {
+    const handleResize = () => {
+      updateActiveIndicator();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateActiveIndicator]);
+
+  /* Scroll-based navbar collapse (GymFlow style) */
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      // rAF-throttled and passive so the handler never blocks the scroll thread.
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > COLLAPSE_AT);
+        ticking = false;
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   /* Track which section owns the viewport. */
   useEffect(() => {
     if (!isHome) return;
@@ -63,19 +149,21 @@ export function SiteNav() {
 
   /* Lock the page behind the mobile sheet. */
   useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-
+    document.body.style.overflow = sheetOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = '';
     };
-  }, [open]);
+  }, [sheetOpen]);
+
+  // Escape closes the mobile sheet
+  useEffect(() => {
+    if (!sheetOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [sheetOpen]);
 
   const handleAnchor = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -89,28 +177,86 @@ export function SiteNav() {
     },
     [isHome],
   );
-
   return (
     <>
-      <header
-          className={cn(
-            "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-300",
-            scrolled
-              ? "border-b border-hairline bg-background/90 py-3 backdrop-blur-sm"
-              : "border-b border-transparent py-5",
-          )}
+      {/* Two layers like GymFlow: transparent frame + animated island */}
+      <header 
+        ref={navRef}
+        className="fixed inset-x-0 top-0 z-50 px-3 md:px-5"
+        style={{ paddingTop: NAV_TOP }}
       >
-        <div className="shell flex items-center justify-between gap-6">
+        <nav
+          aria-label="Main"
+          className="relative mx-auto flex items-center justify-between gap-6 px-4 md:px-6 transition-all duration-500 ease-out"
+          style={{
+            height: scrolled ? NAV_H_SCROLLED : NAV_H,
+            maxWidth: scrolled ? NAV_MAX_W_SCROLLED : NAV_MAX_W,
+            borderRadius: 16,
+            // GymFlow-style background with color-mix
+            backgroundColor: scrolled
+              ? 'color-mix(in srgb, rgb(var(--surface) / 0.8) 80%, transparent)'
+              : 'transparent',
+            backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
+            WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
+            border: scrolled ? '1px solid rgb(var(--hairline))' : '1px solid transparent',
+            boxShadow: scrolled
+              ? '0 10px 34px -12px color-mix(in srgb, rgb(var(--foreground)) 15%, transparent)'
+              : 'none',
+            // Own compositor layer for smooth animations
+            transform: 'translateZ(0)',
+          }}
+        >
+          {/* Moving highlight background */}
+          <div 
+            ref={highlightRef}
+            className="absolute top-0 left-0 bg-surface/60 backdrop-blur-sm transition-all duration-300 ease-out rounded-full opacity-0 border border-hairline/40 pointer-events-none"
+            style={{
+              width: '0px',
+              height: '0px',
+              transform: 'translate(0px, 0px)',
+              zIndex: 0
+            }}
+          />
+          
+          {/* Active indicator */}
+          <div 
+            ref={activeRef}
+            className="absolute top-0 left-0 bg-surface/80 backdrop-blur-sm transition-all duration-500 ease-out rounded-full border border-foreground/10 pointer-events-none"
+            style={{
+              width: '0px',
+              height: '0px',
+              transform: 'translate(0px, 0px)',
+              boxShadow: isHome && active !== 'top' ? '0 0 20px rgba(255, 255, 255, 0.05)' : 'none',
+              zIndex: 0
+            }}
+          />
+
+          {/* Logo */}
           <Link
             href="/"
             onClick={(event) => handleAnchor(event, "/#top")}
-            className="flex items-center gap-3"
+            className="flex shrink-0 items-center gap-3 relative z-10 px-2 py-1.5 rounded-full"
             aria-label={`${site.name} — home`}
+            onMouseEnter={(e) => moveHighlight(e.currentTarget)}
+            onMouseLeave={() => resetHighlight()}
           >
-            <span className="grid size-9 place-items-center border border-hairline bg-surface font-mono text-xs font-semibold text-silver-200">
+            <span 
+              className="grid place-items-center border border-hairline bg-surface font-mono text-xs font-semibold text-silver-200 transition-all duration-500"
+              style={{
+                width: scrolled ? 32 : 36,
+                height: scrolled ? 32 : 36,
+              }}
+            >
               {site.initials}
             </span>
-            <span className="hidden flex-col leading-tight sm:flex">
+            <span 
+              className="flex-col leading-tight transition-all duration-500"
+              style={{
+                opacity: scrolled ? 0 : 1,
+                transform: scrolled ? 'translateX(-10px)' : 'translateX(0)',
+                display: scrolled ? 'none' : 'flex',
+              }}
+            >
               <span className="font-display text-sm font-semibold tracking-tight">
                 {site.name}
               </span>
@@ -119,45 +265,52 @@ export function SiteNav() {
               </span>
             </span>
           </Link>
-
-          <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-1">
-              {nav.map((item) => {
-                const isActive = isHome && active === item.id;
-                return (
-                  <li key={item.id}>
-                    <Link
-                      href={item.href}
-                      onClick={(event) => handleAnchor(event, item.href)}
-                      aria-current={isActive ? "true" : undefined}
-                      className={cn(
-                        "flex items-center gap-2 px-4 py-2 text-sm transition-colors duration-200",
-                        isActive
-                          ? "text-foreground"
-                          : "text-muted-foreground hover:text-foreground",
-                      )}
-                    >
-                      <span
-                        className={cn(
-                          "size-1 rounded-full transition-colors duration-200",
-                          isActive ? "bg-foreground" : "bg-transparent",
-                        )}
-                        aria-hidden="true"
-                      />
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-
-          <div className="flex items-center gap-2">
+          {/* Centered Navigation (GymFlow style) */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex z-10">
+            <div className="relative">
+              <ul className="flex items-center gap-1 relative">
+                {nav.map((item) => {
+                  const isActive = isHome && active === item.id;
+                  return (
+                    <li key={item.id}>
+                      <Link
+                        href={item.href}
+                        onClick={(event) => handleAnchor(event, item.href)}
+                        aria-current={isActive ? "true" : undefined}
+                        className="relative flex items-center gap-2 px-3.5 py-2 text-[13.5px] font-medium transition-all duration-300 z-10 rounded-full text-muted-foreground hover:text-foreground data-[current=true]:text-foreground"
+                        data-current={isActive}
+                        onMouseEnter={(e) => moveHighlight(e.currentTarget)}
+                        onMouseLeave={() => resetHighlight()}
+                      >
+                        <span
+                          className={cn(
+                            "size-1 rounded-full transition-colors duration-200",
+                            isActive ? "bg-foreground" : "bg-transparent",
+                          )}
+                          aria-hidden="true"
+                        />
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+          {/* Right cluster */}
+          <div className="flex items-center gap-2 relative z-10">
             <a
               href={site.links.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="hidden items-center gap-2 border border-hairline px-4 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:border-foreground/40 hover:text-foreground sm:flex"
+              className="hidden items-center gap-2 rounded-full px-3.5 py-2 text-[13.5px] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground sm:flex"
+              style={{
+                opacity: scrolled ? 0 : 1,
+                transform: scrolled ? 'scale(0.9)' : 'scale(1)',
+                display: scrolled ? 'none' : 'flex',
+              }}
+              onMouseEnter={(e) => moveHighlight(e.currentTarget)}
+              onMouseLeave={() => resetHighlight()}
             >
               <GithubIcon className="size-4" />
               <span className="hidden md:inline">GitHub</span>
@@ -167,91 +320,108 @@ export function SiteNav() {
               href={site.resume}
               target="_blank"
               rel="noreferrer noopener"
-              className="group flex items-center gap-2 bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity duration-200 hover:opacity-90"
+              className="group flex items-center gap-2 bg-foreground text-background rounded-full font-medium transition-all duration-300 hover:opacity-90"
+              style={{
+                fontSize: '13.5px',
+                padding: scrolled ? '6px 14px' : '8px 16px',
+              }}
+              onMouseEnter={(e) => moveHighlight(e.currentTarget)}
+              onMouseLeave={() => resetHighlight()}
             >
               <FileText className="size-4" aria-hidden="true" />
-              Resume
+              <span 
+                className="transition-all duration-300"
+                style={{
+                  opacity: scrolled ? 0 : 1,
+                  width: scrolled ? 0 : 'auto',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Resume
+              </span>
               <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             <button
               type="button"
-              onClick={() => setOpen(true)}
-              aria-expanded={open}
-              aria-label="Open menu"
-              className="ml-1 grid size-10 place-items-center border border-hairline text-foreground transition-colors hover:border-foreground/40 lg:hidden"
+              onClick={() => setOpen(!sheetOpen)}
+              aria-label={sheetOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={sheetOpen}
+              className="grid place-items-center rounded-full border border-hairline bg-surface text-foreground transition-all duration-300 hover:border-foreground/40 lg:hidden"
+              style={{
+                width: scrolled ? 36 : 40,
+                height: scrolled ? 36 : 40,
+              }}
+              onMouseEnter={(e) => moveHighlight(e.currentTarget)}
+              onMouseLeave={() => resetHighlight()}
             >
-              <span className="flex w-4 flex-col gap-[5px]" aria-hidden="true">
-                <span className="h-px w-full bg-current" />
-                <span className="h-px w-full bg-current" />
-                <span className="h-px w-2/3 bg-current" />
-              </span>
+              {sheetOpen ? (
+                <X className="size-4" />
+              ) : (
+                <span className="flex w-4 flex-col gap-[5px]" aria-hidden="true">
+                  <span className="h-px w-full bg-current" />
+                  <span className="h-px w-full bg-current" />
+                  <span className="h-px w-2/3 bg-current" />
+                </span>
+              )}
             </button>
           </div>
-        </div>
+        </nav>
       </header>
-
-      {open && (
+      {/* Mobile sheet with GymFlow-style positioning */}
+      {sheetOpen && (
         <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Site menu"
-          className="fixed inset-0 z-[70] flex flex-col bg-background lg:hidden"
+          id="nav-mobile-sheet"
+          className="fixed inset-x-0 bottom-0 overflow-y-auto border-t border-hairline bg-background px-5 py-6 lg:hidden animate-in slide-in-from-bottom duration-300"
+          style={{ 
+            top: NAV_TOP + (scrolled ? NAV_H_SCROLLED : NAV_H),
+          }}
+          onClick={(event) => {
+            // Any link tap closes the sheet
+            if ((event.target as Element).closest('a')) setOpen(false);
+          }}
         >
-          <div className="pointer-events-none absolute inset-0 grid-lines opacity-60" aria-hidden="true" />
-
-          <div className="shell relative flex items-center justify-between py-5">
-            <span className="font-mono text-[0.625rem] uppercase tracking-[0.22em] text-muted-foreground">
-              Menu
-            </span>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close menu"
-              className="grid size-10 place-items-center border border-hairline text-foreground"
-            >
-              <X className="size-4" aria-hidden="true" />
-            </button>
-          </div>
-
-          <nav aria-label="Mobile" className="shell relative flex flex-1 flex-col justify-center">
-            <ul className="flex flex-col gap-1">
+          <nav aria-label="Mobile" className="flex flex-col">
+            <ul className="flex flex-col">
               {nav.map((item, i) => (
                 <li key={item.id}>
                   <Link
                     href={item.href}
                     onClick={(event) => handleAnchor(event, item.href)}
-                    className="flex items-baseline gap-4 py-2"
+                    className="block border-b border-hairline py-4 text-[17px] font-medium text-foreground transition-all duration-300 hover:translate-x-2"
+                    style={{ 
+                      animationDelay: `${i * 100}ms`,
+                      animationFillMode: 'backwards'
+                    }}
                   >
-                    <span className="font-mono text-xs text-silver-400">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-display text-[clamp(2.25rem,12vw,3.5rem)] font-semibold leading-[1.04] tracking-tight">
-                      {item.label}
-                    </span>
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
-
-          <div className="shell relative space-y-4 pb-10">
-            <div className="rule" aria-hidden="true" />
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
-              <a className="link-underline" href={site.links.github} target="_blank" rel="noreferrer noopener">
-                GitHub
+            
+            <div className="mt-7 flex flex-col gap-3">
+              <a
+                href={site.resume}
+                download
+                className="flex items-center justify-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-base font-medium transition-opacity hover:opacity-90"
+              >
+                <FileText className="size-4" />
+                Download Resume
+                <ArrowUpRight className="size-4" />
               </a>
-              <a className="link-underline" href={site.links.linkedin} target="_blank" rel="noreferrer noopener">
-                LinkedIn
-              </a>
-              <a className="link-underline" href={site.links.email}>
-                Email
-              </a>
-              <a className="link-underline" href={site.resume} target="_blank" rel="noreferrer noopener">
-                Resume
+              <a
+                href={site.links.github}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex items-center justify-center gap-2 border border-hairline text-foreground px-6 py-3 rounded-full text-base font-medium transition-colors hover:bg-surface/50"
+              >
+                <GithubIcon className="size-4" />
+                View on GitHub
               </a>
             </div>
-          </div>
+          </nav>
         </div>
       )}
     </>

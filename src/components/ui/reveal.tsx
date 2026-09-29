@@ -67,14 +67,16 @@ export function Reveal({ children, delay = 0, as: Tag = "div", className }: Reve
     return () => io.unobserve(el);
   }, []);
 
+  const Component = Tag as any;
+
   return (
-    <Tag
+    <Component
       ref={ref}
       className={cn("reveal", className)}
       style={delay ? ({ "--reveal-delay": `${delay}ms` } as React.CSSProperties) : undefined}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }
 
@@ -124,8 +126,10 @@ export function RevealText({
   const words = text.split(" ");
   let index = 0;
 
+  const Component = Tag as any;
+
   return (
-    <Tag ref={ref} className={cn("inline-block", className)}>
+    <Component ref={ref} className={cn("inline-block", className)}>
       <span className="sr-only">{text}</span>
       <span aria-hidden="true">
         {words.map((word, wordIndex) => (
@@ -150,6 +154,6 @@ export function RevealText({
           </span>
         ))}
       </span>
-    </Tag>
+    </Component>
   );
 }

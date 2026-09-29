@@ -2,6 +2,7 @@ import { Section } from "@/components/layout/section";
 import { stackGroups, techMarquee } from "@/content/engineering";
 import { Reveal } from "@/components/ui/reveal";
 import { Marquee } from "@/components/ui/marquee";
+import { CursorGrid } from "@/components/ui/cursor-grid";
 
 /**
  * Plain CSS grid. This replaced MagicBento, which ran a GSAP particle system
@@ -17,8 +18,15 @@ export function Engineering() {
       title="What I build"
       lead="Six layers I work across. The list reflects what I have shipped rather than everything I have briefly touched."
     >
-      <div className="shell">
-        <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
+      <CursorGrid
+        color="#c2c2c8"
+        maxOpacity={0.4}
+        radius={250}
+        fadeDuration={600}
+        className="absolute inset-0 z-0 pointer-events-auto"
+      />
+      <div className="shell mt-8 relative z-10">
+        <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden">
           {stackGroups.map((group, index) => (
             <Reveal key={group.label} delay={index * 60} className="bg-surface">
               <div className="group h-full p-6 transition-colors duration-300 hover:bg-surface-2 sm:p-7">
@@ -36,20 +44,20 @@ export function Engineering() {
                   {group.description}
                 </p>
 
-                <ul className="mt-5 flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="border border-hairline bg-surface-2 px-2.5 py-1 font-mono text-[0.6875rem] text-foreground/75"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+                  <ul className="mt-5 flex flex-wrap gap-1.5">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="border border-hairline bg-surface-2 px-2.5 py-1 font-mono text-[0.6875rem] text-foreground/75"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
       </div>
 
       <div className="mt-12 border-y border-hairline py-5">

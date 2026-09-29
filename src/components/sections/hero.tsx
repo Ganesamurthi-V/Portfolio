@@ -10,7 +10,7 @@ import { scrollToId } from "@/lib/scroll";
 import { Reveal, RevealText } from "@/components/ui/reveal";
 import { AsciiSymbol } from "@/components/ui/ascii-symbol";
 
-const Dither = dynamic(() => import("@/components/ui/dither"), { ssr: false });
+const DotField = dynamic(() => import("@/components/ui/dot-field").then(mod => mod.DotField), { ssr: false });
 
 const secondaryLinks = [
   { label: "GitHub", href: site.links.github, Icon: GithubIcon, external: true },
@@ -38,19 +38,21 @@ export function Hero() {
       id="top"
       className="relative min-h-svh overflow-hidden flex items-center justify-center"
     >
-      {/* Dither background */}
+      {/* DotField background */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
-        <Dither
-          waveSpeed={0.05}
-          waveFrequency={3}
-          waveAmplitude={0.3}
-          waveColor={[0.5, 0.5, 0.5]}
-          colorNum={4}
-          pixelSize={2}
-          disableAnimation={false}
-          enableMouseInteraction={true}
-          mouseRadius={0.3}
-          containerRef={sectionRef as React.RefObject<HTMLElement>}
+        <DotField
+          dotRadius={1.5}
+          dotSpacing={14}
+          cursorRadius={500}
+          cursorForce={0.1}
+          bulgeOnly={true}
+          bulgeStrength={67}
+          glowRadius={160}
+          sparkle={false}
+          waveAmplitude={0}
+          gradientFrom="rgba(255, 255, 255, 0.15)"
+          gradientTo="rgba(255, 255, 255, 0.05)"
+          glowColor="rgba(255, 255, 255, 0.05)"
         />
       </div>
 
@@ -74,13 +76,13 @@ export function Hero() {
             {site.name} — {site.role}
           </span>
           <RevealText
-            text="Build production-ready"
+            text={site.name}
             stagger={26}
             delay={200}
-            className="font-display block text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[1.1] tracking-[-0.045em] text-foreground mb-2"
+            className="font-display block text-[clamp(1.5rem,4vw,2.5rem)] font-medium leading-[1.1] tracking-[-0.02em] text-muted-foreground mb-4"
           />
           <RevealText
-            text="web applications"
+            text={site.role}
             stagger={26}
             delay={400}
             className="font-display block text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[1.1] tracking-[-0.045em] text-foreground"

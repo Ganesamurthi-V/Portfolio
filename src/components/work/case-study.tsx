@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, TriangleAlert } from "lucide-react";
 
@@ -276,7 +278,16 @@ export function CaseStudy({ project, next }: Props) {
 
       {/* Next project */}
       <section className="mt-10 border-t border-hairline">
-        <Link href={`/work/${next.slug}`} className="group block">
+        <Link 
+          href={`/work/${next.slug}`} 
+          className="group block"
+          onClick={() => {
+            window.scrollTo(0, 0);
+            if ((window as any).__lenis) {
+              (window as any).__lenis.scrollTo(0, { immediate: true });
+            }
+          }}
+        >
           <div className="shell flex flex-col gap-6 py-14 sm:flex-row sm:items-end sm:justify-between sm:py-16">
             <div>
               <p className="eyebrow">Next project</p>

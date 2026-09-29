@@ -49,10 +49,13 @@ export function SiteNav() {
   const isDesktop = useMediaQuery(`(min-width: ${DESKTOP_AT}px)`);
   const sheetOpen = open && !isDesktop;
 
+  const highlightTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
   // Function to move highlight on hover
   const moveHighlight = useCallback((element: HTMLElement) => {
     if (!highlightRef.current || !element) return;
     
+    clearTimeout(highlightTimeout.current);
     const rect = element.getBoundingClientRect();
     const nav = element.closest('nav');
     if (!nav) return;
@@ -66,18 +69,29 @@ export function SiteNav() {
     highlightRef.current.style.height = `${rect.height}px`;
     highlightRef.current.style.transform = `translate(${left}px, ${top}px)`;
   }, []);
+
   // Function to reset highlight
   const resetHighlight = useCallback(() => {
-    if (!highlightRef.current) return;
-    highlightRef.current.style.opacity = '0';
+    highlightTimeout.current = setTimeout(() => {
+      if (!highlightRef.current) return;
+      highlightRef.current.style.opacity = '0';
+    }, 50);
   }, []);
 
   // Function to update active indicator position
   const updateActiveIndicator = useCallback(() => {
-    if (!activeRef.current || !isHome) return;
+    if (!activeRef.current) return;
+    
+    if (!isHome) {
+      activeRef.current.style.opacity = '0';
+      return;
+    }
     
     const activeLink = document.querySelector(`a[href="/#${active}"]`) as HTMLAnchorElement;
-    if (!activeLink) return;
+    if (!activeLink) {
+      activeRef.current.style.opacity = '0';
+      return;
+    }
     
     const rect = activeLink.getBoundingClientRect();
     const nav = activeLink.closest('nav');
@@ -87,6 +101,7 @@ export function SiteNav() {
     const left = rect.left - navRect.left;
     const top = rect.top - navRect.top;
     
+    activeRef.current.style.opacity = '1';
     activeRef.current.style.width = `${rect.width}px`;
     activeRef.current.style.height = `${rect.height}px`;
     activeRef.current.style.transform = `translate(${left}px, ${top}px)`;
@@ -97,14 +112,26 @@ export function SiteNav() {
     updateActiveIndicator();
   }, [updateActiveIndicator]);
 
-  // Update positions on resize
+  // Update positions on resize and layout shifts (e.g., font loading)
   useEffect(() => {
     const handleResize = () => {
       updateActiveIndicator();
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    
+    let observer: ResizeObserver | null = null;
+    if (navRef.current) {
+      observer = new ResizeObserver(() => {
+        updateActiveIndicator();
+      });
+      observer.observe(navRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      observer?.disconnect();
+    };
   }, [updateActiveIndicator]);
 
   /* Scroll-based navbar collapse (GymFlow style) */

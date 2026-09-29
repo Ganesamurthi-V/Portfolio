@@ -133,20 +133,7 @@ export const projects: Project[] = [
         alt: "GymFlow subscription plans with monthly, six-month and yearly pricing",
         caption:
           "Subscription — GymFlow's own billing: three tiers behind a 14-day trial, no card required",
-      },
-      {
-        src: "/projects/gymflow-add-member.png",
-        alt: "GymFlow add member wizard with live member ID availability check",
-        caption:
-          "Onboarding — a two-step wizard that suggests the next member ID and checks availability live",
-      },
-      {
-        src: "/projects/gymflow-mobile.png",
-        alt: "GymFlow owner dashboard on a phone viewport with bottom navigation",
-        caption:
-          "Responsive — the owner console on a phone, since most gym owners run the floor from one",
-        portrait: true,
-      },
+      }
     ],
     repo: "https://github.com/Ganesamurthi-V",
     demo: "https://gymflow.sbs",
@@ -308,7 +295,7 @@ export const projects: Project[] = [
         caption: "Auto-generated REST endpoints derived from the schema",
       },
     ],
-    repo: "https://github.com/Ganesamurthi-V",
+    repo: "https://github.com/Ganesamurthi-V/Light-Base",
     metrics: [
       { label: "Core services", value: 4 },
       { label: "Container footprint", value: 3, suffix: " images" },
@@ -437,6 +424,7 @@ export const projects: Project[] = [
         caption: "Monitoring view — predicted filter health and remaining service life",
       },
     ],
+    repo: "https://github.com/Ganesamurthi-V/Air-Filter-Status-Prediction-System",
     metrics: [
       { label: "Pipeline stages", value: 5 },
       { label: "Model heads", value: 2 },
@@ -559,6 +547,7 @@ export const projects: Project[] = [
         caption: "Match report — overlap, gaps and recommended roles from one upload",
       },
     ],
+    repo: "https://github.com/Ganesamurthi-V/career-guidance-using-streamlit",
     metrics: [
       { label: "Processing stages", value: 4 },
       { label: "Supported formats", value: 3 },

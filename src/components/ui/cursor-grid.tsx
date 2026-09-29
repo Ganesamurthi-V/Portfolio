@@ -127,9 +127,9 @@ export const CursorGrid = ({
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cols = Math.ceil(w / p.cellSize) + 1;
-      rows = Math.ceil(h / p.cellSize) + 1;
-      // Center the lattice so edge cells crop evenly on both sides
+      cols = Math.floor(w / p.cellSize);
+      rows = Math.floor(h / p.cellSize);
+      // Center the lattice, leaving blank margins so no cells are cropped
       offX = (w - cols * p.cellSize) / 2;
       offY = (h - rows * p.cellSize) / 2;
       alphas = new Float32Array(cols * rows);

@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
+import type { MarqueeItem } from "@/content/engineering";
 
 interface MarqueeProps {
-  items: string[];
+  items: MarqueeItem[];
   reverse?: boolean;
   className?: string;
 }
@@ -16,10 +17,21 @@ export function Marquee({ items, reverse = false, className }: MarqueeProps) {
     <ul className="flex shrink-0 items-center" aria-hidden="true">
       {items.map((item, i) => (
         <li
-          key={`${item}-${i}`}
-          className="flex shrink-0 items-center gap-10 px-5 font-mono text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground"
+          key={`${item.name}-${i}`}
+          className="flex shrink-0 items-center gap-2.5 px-5"
         >
-          {item}
+          {/* Brand SVG icon */}
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            className="size-4 shrink-0 opacity-80"
+            style={{ fill: item.color ?? "currentColor" }}
+          >
+            <path d={item.icon} />
+          </svg>
+          <span className="font-mono text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
+            {item.name}
+          </span>
           <span className="register-mark opacity-60" />
         </li>
       ))}
@@ -29,7 +41,7 @@ export function Marquee({ items, reverse = false, className }: MarqueeProps) {
   return (
     <div className={cn("marquee relative", className)}>
       {/* The accessible copy; the animated track is decorative. */}
-      <span className="sr-only">{items.join(", ")}</span>
+      <span className="sr-only">{items.map((i) => i.name).join(", ")}</span>
       <div
         className={cn(
           "marquee__track",

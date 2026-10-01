@@ -8,7 +8,7 @@ export function Experience() {
   return (
     <Section
       id="experience"
-      index="04"
+      index="03"
       eyebrow="Experience"
       title="Where I have shipped"
       lead="One internship, taken end to end: from raw sensor data through model training to a deployed service other systems depended on."

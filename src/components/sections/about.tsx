@@ -14,7 +14,7 @@ const profile = [
 
 export function About() {
   return (
-    <Section id="about" index="05" eyebrow="About" title={about.heading} lead={about.body}>
+    <Section id="about" index="04" eyebrow="About" title={about.heading} lead={about.body}>
       <div className="shell grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16">
         <div>
           <Reveal>

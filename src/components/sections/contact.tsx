@@ -132,7 +132,7 @@ export function Contact() {
         <div className="pixel-field absolute inset-x-0 top-0 h-[22rem] opacity-30" />
       </div>
 
-      <Section id="contact" index="06" eyebrow="Contact" innerClassName="mt-0">
+      <Section id="contact" index="05" eyebrow="Contact" innerClassName="mt-0">
         <div className="shell">
           <div className="rule mb-8" aria-hidden="true" />
 

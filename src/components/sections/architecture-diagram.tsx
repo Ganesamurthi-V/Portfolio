@@ -319,7 +319,8 @@ export function ArchitectureDiagram({ nodes, edges, className }: Props) {
       </div>
 
       <p className="mt-6 font-mono text-[0.625rem] uppercase tracking-[0.16em] text-muted-foreground">
-        Hover or focus a node to trace its outbound calls
+        <span className="sm:hidden">Swipe sideways to see the full diagram · tap</span>
+        <span className="hidden sm:inline">Hover or focus</span> a node to trace its outbound calls
       </p>
     </div>
   );

@@ -80,7 +80,7 @@ export function CaseStudy({ project, next }: Props) {
 
           <Reveal delay={260}>
             <div className="mt-10 flex flex-col gap-8 border-t border-hairline pt-8 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-              <div className="grid flex-1 gap-8 sm:grid-cols-3">
+              <div className="grid flex-1 grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
                 {project.metrics.map((metric) => (
                   <div key={metric.label}>
                     <p className="font-display text-[clamp(1.75rem,1.3rem+1.4vw,2.5rem)] font-semibold leading-none text-foreground">

@@ -177,8 +177,11 @@ export function SiteNav() {
   /* Lock the page behind the mobile sheet. */
   useEffect(() => {
     document.body.style.overflow = sheetOpen ? 'hidden' : '';
+    if (sheetOpen) window.__lenis?.stop();
+    else window.__lenis?.start();
     return () => {
       document.body.style.overflow = '';
+      window.__lenis?.start();
     };
   }, [sheetOpen]);
 
@@ -214,18 +217,18 @@ export function SiteNav() {
       >
         <nav
           aria-label="Main"
-          className="relative mx-auto flex items-center justify-between gap-6 px-4 md:px-6 transition-all duration-500 ease-out"
+          className="relative mx-auto flex items-center justify-between gap-3 px-3 sm:gap-6 sm:px-4 md:px-6 transition-all duration-500 ease-out"
           style={{
             height: scrolled ? NAV_H_SCROLLED : NAV_H,
             maxWidth: scrolled ? NAV_MAX_W_SCROLLED : NAV_MAX_W,
             borderRadius: 16,
             // GymFlow-style background with color-mix
             backgroundColor: scrolled
-              ? 'color-mix(in srgb, rgb(var(--surface) / 0.8) 80%, transparent)'
+              ? 'color-mix(in srgb, var(--surface) 80%, transparent)'
               : 'transparent',
             backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
             WebkitBackdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-            border: scrolled ? '1px solid rgb(var(--hairline))' : '1px solid transparent',
+            border: scrolled ? '1px solid var(--hairline)' : '1px solid transparent',
             boxShadow: scrolled
               ? '0 10px 34px -12px color-mix(in srgb, rgb(var(--foreground)) 15%, transparent)'
               : 'none',
@@ -276,18 +279,20 @@ export function SiteNav() {
             >
               {site.initials}
             </span>
-            <span 
-              className="flex-col leading-tight transition-all duration-500"
+            <span
+              className={cn(
+                "flex-col leading-tight transition-all duration-500",
+                scrolled ? "hidden" : "flex",
+              )}
               style={{
                 opacity: scrolled ? 0 : 1,
                 transform: scrolled ? 'translateX(-10px)' : 'translateX(0)',
-                display: scrolled ? 'none' : 'flex',
               }}
             >
-              <span className="font-display text-sm font-semibold tracking-tight">
+              <span className="font-display text-sm font-semibold tracking-tight whitespace-nowrap">
                 {site.name}
               </span>
-              <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="hidden font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground whitespace-nowrap sm:block">
                 {site.role}
               </span>
             </span>
@@ -330,11 +335,13 @@ export function SiteNav() {
               href={site.links.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="hidden items-center gap-2 rounded-full px-3.5 py-2 text-[13.5px] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground sm:flex"
+              className={cn(
+                "hidden items-center gap-2 rounded-full px-3.5 py-2 text-[13.5px] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground",
+                !scrolled && "sm:flex",
+              )}
               style={{
                 opacity: scrolled ? 0 : 1,
                 transform: scrolled ? 'scale(0.9)' : 'scale(1)',
-                display: scrolled ? 'none' : 'flex',
               }}
               onMouseEnter={(e) => moveHighlight(e.currentTarget)}
               onMouseLeave={() => resetHighlight()}
@@ -347,7 +354,7 @@ export function SiteNav() {
               href={site.resume}
               target="_blank"
               rel="noreferrer noopener"
-              className="group flex items-center gap-2 bg-foreground text-background rounded-full font-medium transition-all duration-300 hover:opacity-90"
+              className="group hidden items-center gap-2 bg-foreground text-background rounded-full font-medium transition-all duration-300 hover:opacity-90 sm:flex"
               style={{
                 fontSize: '13.5px',
                 padding: scrolled ? '6px 14px' : '8px 16px',
@@ -375,7 +382,8 @@ export function SiteNav() {
               onClick={() => setOpen(!sheetOpen)}
               aria-label={sheetOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={sheetOpen}
-              className="grid place-items-center rounded-full border border-hairline bg-surface text-foreground transition-all duration-300 hover:border-foreground/40 lg:hidden"
+              aria-controls="nav-mobile-sheet"
+              className="grid shrink-0 place-items-center rounded-full border border-hairline bg-surface text-foreground transition-all duration-300 hover:border-foreground/40 lg:hidden"
               style={{
                 width: scrolled ? 36 : 40,
                 height: scrolled ? 36 : 40,
@@ -400,7 +408,8 @@ export function SiteNav() {
       {sheetOpen && (
         <div
           id="nav-mobile-sheet"
-          className="fixed inset-x-0 bottom-0 overflow-y-auto border-t border-hairline bg-background px-5 py-6 lg:hidden animate-in slide-in-from-bottom duration-300"
+          data-lenis-prevent
+          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-hairline bg-background px-5 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:hidden animate-in slide-in-from-bottom duration-300"
           style={{ 
             top: NAV_TOP + (scrolled ? NAV_H_SCROLLED : NAV_H),
           }}

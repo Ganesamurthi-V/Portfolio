@@ -60,11 +60,11 @@ export function Hero() {
       <div className="shell relative z-10 flex flex-col items-center justify-center text-center py-24 sm:py-28">
         {/* Badge */}
         <Reveal delay={100}>
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-hairline bg-surface/80 px-4 py-2 backdrop-blur-sm mb-8">
-            <span className="rounded-full bg-foreground px-2.5 py-0.5 font-mono text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-background">
+          <div className="inline-flex items-center gap-2 rounded-full border border-hairline bg-surface/80 px-3 py-2 backdrop-blur-sm mb-8 sm:gap-2.5 sm:px-4">
+            <span className="whitespace-nowrap rounded-full bg-foreground px-2.5 py-0.5 font-mono text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-background sm:tracking-[0.2em]">
               Open to Work
             </span>
-            <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="whitespace-nowrap font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground sm:tracking-[0.2em]">
               Full-Stack Developer
             </span>
           </div>
@@ -91,14 +91,14 @@ export function Hero() {
 
         {/* Subtitle */}
         <Reveal delay={600}>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mt-6 max-w-2xl text-balance-tight text-base leading-relaxed text-muted-foreground sm:text-xl">
             {site.statement}
           </p>
         </Reveal>
 
         {/* CTA Buttons */}
         <Reveal delay={700}>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-6">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-6">
             <button
               type="button"
               onClick={() => scrollToId("work")}
@@ -121,7 +121,7 @@ export function Hero() {
 
         {/* Social Links */}
         <Reveal delay={800}>
-          <div className="mt-12 flex items-center gap-6">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:mt-12">
             {secondaryLinks.map(({ label, href, Icon, external }) => (
               <a
                 key={label}
@@ -142,7 +142,7 @@ export function Hero() {
           <button
             type="button"
             onClick={() => scrollToId("work")}
-            className="group mt-16 flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+            className="group mt-10 flex flex-col sm:mt-16 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
           >
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em]">
               Scroll to explore

@@ -197,7 +197,7 @@ export function Contact() {
                       aria-invalid={Boolean(errors.message)}
                       aria-describedby={errors.message ? "contact-message-error" : undefined}
                       className={cn(
-                        "mt-2.5 w-full resize-y border bg-surface-2 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
+                        "mt-2.5 w-full resize-y border bg-surface-2 px-4 py-3 text-base text-foreground sm:text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
                         errors.message ? "border-destructive/60" : "border-hairline",
                       )}
                       placeholder="What are you building, and where could I help?"
@@ -333,7 +333,8 @@ function Field({ id, label, error, className, ...props }: FieldProps) {
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "mt-2.5 w-full border bg-surface-2 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
+          // 16px below sm: iOS Safari zooms the page on focus for anything smaller.
+          "mt-2.5 w-full border bg-surface-2 px-4 py-3 text-base text-foreground sm:text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/45",
           error ? "border-destructive/60" : "border-hairline",
           className,
         )}

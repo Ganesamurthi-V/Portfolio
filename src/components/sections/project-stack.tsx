@@ -23,7 +23,9 @@ export function ProjectStack() {
         {projects.map((project, index) => (
           <div
             key={project.slug}
-            className="sticky mb-6 last:mb-0"
+            // Stacking only from lg up: on narrower screens a card is taller
+            // than the viewport, so a pinned card's lower half never scrolls in.
+            className="mb-6 last:mb-0 lg:sticky"
             style={{ top: `calc(6rem + ${index * 0.7}rem)`, zIndex: index + 1 }}
           >
             <Reveal>
@@ -33,7 +35,7 @@ export function ProjectStack() {
         ))}
       </div>
 
-      <div className="h-[8vh]" aria-hidden="true" />
+      <div className="hidden h-[8vh] lg:block" aria-hidden="true" />
     </div>
   );
 }

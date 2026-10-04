@@ -20,12 +20,12 @@ export function SiteFooter() {
       <div className="shell relative pt-16 pb-10">
         {/* Oversized wordmark — static silver gradient, previously an
             always-running requestAnimationFrame sheen. */}
-        <p className="text-silver select-none font-display text-[clamp(2.75rem,11vw,9rem)] font-semibold leading-[0.92] tracking-[-0.045em]">
+        <p className="text-silver select-none font-display text-[clamp(1.75rem,11vw,9rem)] font-semibold leading-[0.92] tracking-[-0.045em]">
           {site.name}
         </p>
 
-        <div className="mt-10 grid gap-10 border-t border-hairline pt-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-hairline pt-10 lg:grid-cols-4">
+          <div className="col-span-2 sm:col-span-1">
             <p className="eyebrow">Role</p>
             <p className="mt-3 text-sm text-foreground">{site.role}</p>
             <p className="mt-1 text-sm text-muted-foreground">{site.location}</p>
@@ -82,7 +82,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <p className="eyebrow">Direct</p>
             <a href={site.links.email} className="link-underline mt-3 block text-sm text-foreground">
               {site.email}
